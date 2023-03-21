@@ -1,0 +1,30 @@
+<div class="absolute z-0 w-full">
+    <nav class="relative flex items-center justify-between w-full h-10 sm:h-10 md:h-20 lg:h-20 xl:h-20 2xl:h-20 bg-gradient-to-r from-white to-sky-600">
+        <a href="#">
+            <img src="../../assets/images/bold.png" alt="Bruel" class="h-10 w-10 pt-1 pb-1 pl-4 2xl:h-20 2xl:w-40 2xl:pt-4 2xl:pb-4 2xl:pl-16 xl:h-20 xl:w-20 xl:pt-2 xl:pb-2 xl:pl-8  lg:h-20 lg:w-20 lg:pt-2 lg:pb-2 lg:pl-8 md:h-20 md:w-20 md:pt-2 md:pb-2 md:pl-8 sm:h-10 sm:w-10 sm:pt-1 sm:pb-1 sm:pl-2">
+        </a>
+        <ul *ngIf="!sm" class="2xl:flex 2xl:items-end 2xl:space-x-8 2xl:mr-8 xl:flex xl:items-end  xl:space-x-4 xl:mr-4 lg:flex lg:items-end lg:space-x-4 lg:mr-4 md:flex md:items-end md:space-x-4 md:mr-4">
+            <li class="py-2 2xl:py-3"><a href="#" class="text-white text-lg 2xl:text-2xl font-sans hover:text-sky-300">1. À propos</a></li>
+            <li class="py-2 2xl:py-3"><a href="#" class="text-white text-lg 2xl:text-2xl font-sans hover:text-sky-300">2. Expériences</a></li>
+            <li class="py-2 2xl:py-3"><a href="#" class="text-white text-lg 2xl:text-2xl font-sans hover:text-sky-300">3. Projets</a></li>
+            <li class="py-2 2xl:py-3"><a href="#" class="text-white text-lg 2xl:text-2xl font-sans hover:text-sky-300">4. Contacts</a></li>
+        </ul>
+        <button *ngIf="sm" class="pt-1 pb-1 mr-4 rounded-lg" (click)="openMenu()">
+            <img *ngIf="menuButton" src="../../assets/images/menu.png" alt="Menu" class="h-10 w-10 rounded-lg">
+        </button>
+    </nav>
+</div>
+
+<div *ngIf="menuVisibility" id="side-menu" class="absolute z-10 top-0 right-0 h-full w-auto animate-spin bg-sky-600 rounded">
+    <nav class="h-full relative flex space-x-20 mt-5 ml-2 mr-2">
+        <ul class="flex flex-col space-y-5">
+            <li><a href="#" class="text-white text-lg font-sans hover:text-sky-300">1. À propos</a></li>
+            <li><a href="#" class="text-white text-lg font-sans hover:text-sky-300">2. Expériences</a></li>
+            <li><a href="#" class="text-white text-lg font-sans hover:text-sky-300">3. Projets</a></li>
+            <li><a href="#" class="text-white text-lg font-sans hover:text-sky-300">4. Contacts</a></li>
+        </ul>
+        <button (click)="closeMenu()">
+            <img src="../../assets/images/annuler.png" class="absolute top-0 right-0 h-7 w-7" alt="Fermer">
+        </button>
+    </nav>
+</div>
