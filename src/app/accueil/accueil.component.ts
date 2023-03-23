@@ -12,4 +12,8 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  openCV(){
+    console.log("open CV");
+  }
 }

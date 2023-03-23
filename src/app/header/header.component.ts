@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit {
   menuVisibility: boolean = false;
   menuButton: boolean = true;
 
+  isMenuOpen: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -25,11 +27,13 @@ export class HeaderComponent implements OnInit {
   openMenu(){
     this.menuVisibility = true;
     this.menuButton = false;
+    this.isMenuOpen = true;
   }
 
   closeMenu(){
     this.menuVisibility = false;
     this.menuButton = true;
+    this.isMenuOpen = false;
   }
 
   @HostListener('window:resize', ['$event'])
@@ -44,6 +48,7 @@ export class HeaderComponent implements OnInit {
       this.sm = false;
       this.menuVisibility = false;
       this.menuButton = false;
+      this.isMenuOpen = false;
     }
   }
 
