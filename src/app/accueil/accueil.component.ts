@@ -10,6 +10,8 @@ import { fadeInAnimation } from '../animations';
 })
 export class AccueilComponent implements OnInit {
 
+  isLoad: boolean = false;
+
   accueil: boolean = false;
   apropos: boolean = false;
   experiences: boolean = false;
@@ -21,6 +23,12 @@ export class AccueilComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
+    this.isLoad = true;
+
+    setTimeout(() => {
+      this.isLoad = false;
+    }, 2500);
+
     this.sharedService.isMenuOpenHeader$.subscribe(isOpen => {
       this.isMenuOpen = isOpen;
     });
