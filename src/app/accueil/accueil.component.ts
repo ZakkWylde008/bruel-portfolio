@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { fadeInAnimation } from '../animations';
+import { Experiences } from './experiences.model';
 
 @Component({
   selector: 'app-accueil',
@@ -19,6 +20,8 @@ export class AccueilComponent implements OnInit {
   contacts: boolean = false;
 
   isMenuOpen: boolean = false;
+
+  experience: Experiences[] = [];
 
   constructor(private sharedService: SharedService) {}
 
@@ -49,6 +52,42 @@ export class AccueilComponent implements OnInit {
     this.sharedService.isContacts$.subscribe(is => {
       this.contacts = is;
     });
+
+    this.experience.push(this.getExp(new Experiences));
+    this.experience.push(this.getExp2(new Experiences));
+  }
+
+  getExp(exp: Experiences){
+    exp.id = 1;
+    exp.nom = "CREA-TIC";
+    exp.type = "Stage";
+    exp.description = "Developpeur web";
+    exp.dateDebut = new Date("07/06/2012");
+    exp.dateFin = new Date("07/06/2015");
+    exp.isShow = true;
+
+    return exp;
+  }
+
+  getExp2(exp: Experiences){
+    exp.id = 2;
+    exp.nom = "INOVATIC";
+    exp.type = "CDI";
+    exp.description = "Developpeur mobile";
+    exp.dateDebut = new Date("07/10/2010");
+    exp.dateFin = new Date("07/06/2012");
+    exp.isShow = false;
+
+    return exp;
+  }
+
+  changeDesc(exp: Experiences){
+    exp.isShow = true;
+    for(let i =0; i < this.experience.length; i++){
+      if(this.experience[i] != exp && this.experience[i].isShow === true){
+        this.experience[i].isShow = false;
+      }
+    }
   }
 
   openCV(){
