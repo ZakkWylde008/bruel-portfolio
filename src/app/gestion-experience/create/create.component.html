@@ -1,0 +1,44 @@
+<h1 class="text-center w-auto m-4 p-2 font-extrabold">Création d'experience</h1>
+<a href="http://localhost:4200/backend008/experience"><button class="text-center w-20 m-4 p-2 font-bold bg-black drop-shadow rounded-lg text-white hover:bg-white hover:text-black">Retour</button></a>
+<div class="w-full mt-4">
+    <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4">
+      <div class="m-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="nom">
+          Nom
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nom" formControlName="nom" type="text" placeholder="Lieux de l'expérience" required>
+      </div>
+      <div class="m-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="type">
+          Type
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" formControlName="type" type="text" placeholder="Type de l'expérience" required>
+      </div>
+      <div class="m-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dateDebut">
+          Date de début
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dateDebut" formControlName="dateDebut" type="date" required>
+      </div>
+      <div class="m-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dateFin">
+          Date de fin
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dateFin" formControlName="dateFin" type="date">
+      </div>
+      <div class="m-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+          Déscription
+        </label>
+        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" formControlName="description" cols="30" rows="10" placeholder="Déscription de l'expérience" required></textarea>
+      </div>
+      <div class="flex items-center justify-between m-4">
+        <button class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" [disabled]="!experienceForm.valid">
+          Ajouter
+        </button>
+      </div>
+    </form>
+    <!-- <p class="text-center text-gray-500 text-xs">
+      &copy;2020 Acme Corp. All rights reserved.
+    </p> -->
+</div>

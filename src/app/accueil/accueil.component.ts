@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { fadeInAnimation } from '../animations';
 import { Experiences } from './experiences.model';
+import { ProjetService } from '../gestion-projet/projet.service';
 
 @Component({
   selector: 'app-accueil',
@@ -23,7 +24,12 @@ export class AccueilComponent implements OnInit {
 
   experience: Experiences[] = [];
 
-  constructor(private sharedService: SharedService) {}
+  projet:any = [];
+
+  constructor(
+    private sharedService: SharedService,
+    private projectservice: ProjetService
+    ) {}
 
   ngOnInit(): void {
     this.isLoad = true;
@@ -55,6 +61,8 @@ export class AccueilComponent implements OnInit {
 
     this.experience.push(this.getExp(new Experiences));
     this.experience.push(this.getExp2(new Experiences));
+
+    this.projet = this.projectservice.getVideoList();
   }
 
   getExp(exp: Experiences){
@@ -81,7 +89,7 @@ export class AccueilComponent implements OnInit {
     return exp;
   }
 
-  changeDesc(exp: Experiences){
+  changeDescription(exp: Experiences){
     exp.isShow = true;
     for(let i =0; i < this.experience.length; i++){
       if(this.experience[i] != exp && this.experience[i].isShow === true){
