@@ -31,12 +31,12 @@
     </div>
 
     <!-- A propos -->
-    <div *ngIf="apropos" [@fadeInAnimation]="apropos ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+    <div *ngIf="apropos" [@fadeInAnimation]="apropos ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
         <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8">
             <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">1. À PROPOS DE MOI</h1>
             <hr class="w-1/2 border-black border-2">
         </div>
-        <div class="flex flex-col space-y-2 pt-8 ml-8 mr-8 2xl:flex-row 2xl:space-x-6 2xl:ml-64 2xl:mr-64 xl:flex-row xl:space-x-6 xl:ml-64 xl:mr-64 lg:flex-row lg:pt-14 lg:space-x-2 lg:ml-52 lg:mr-52 md:flex-col md:pt-8 md:space-y-2 md:ml-40 md:mr-40 sm:flex-col sm:pt-6 sm:space-y-2 sm:ml-20 sm:mr-20">
+        <div class="flex flex-col space-y-2 pt-2 ml-8 mr-8 2xl:flex-row 2xl:space-x-6 2xl:ml-64 2xl:mr-64 xl:flex-row xl:space-x-6 xl:ml-64 xl:mr-64 lg:flex-row lg:pt-4 lg:space-x-2 lg:ml-52 lg:mr-52 md:flex-col md:pt-2 md:space-y-2 md:ml-40 md:mr-40 sm:flex-col sm:pt-2 sm:space-y-2 sm:ml-20 sm:mr-20">
             <p class="border-l-[3px] border-b-[3px] border-cyan-600 rounded p-2 2xl:w-1/2 2xl:text-lg xl:text-lg lg:text-base md:w-full md:text-sm sm:w-full sm:text-sm text-sm font-sans drop-shadow">
                 Bonjour! Je m'appele Bruel et je suis un ingénieur en Genie Logiciel et Base de Données fraichement diplômé de l'Ecole Nationale d'Informatique de Fianarantsoa.
                 Depuis tout petit, je suis fasciné par les jeux vidéos et ça m'a emmené dans le monde du digital quand je suis arrivé au lycée vers 2013.
@@ -46,7 +46,7 @@
                 J'ai commencé par les bases du développement web avec HTML, CSS et Javascript puis s'en est suivi les langages comme PHP, JAVA ou encore Python.
                 Je suis maintenant un développeur fullstack junior et après avoir presque touché à tout, j'ai un faible pour les technologies <b class="hover:underline">Symfony</b>, <b class="hover:underline">Angular</b> et récemment <b class="hover:underline">Flutter</b> que j'ai envie d'approfondir.
             </p>
-            <img src="../../assets/images/pdp.jpg" class="2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-72 lg:h-80 md:w-full md:h-80 sm:w-full sm:h-72 w-full h-64 rounded" alt="Photo">
+            <img src="../../assets/images/pdp.jpg" class="2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-72 lg:h-80 md:w-auto md:h-80 sm:w-auto sm:h-72 m-6 w-auto h-64 rounded" alt="Photo">
         </div>
     </div>
 
@@ -63,9 +63,9 @@
             <div class="border-l-[3px] border-r-[3px] border-sky-400 rounded w-3/5">
                 <div *ngFor="let exp of experience">
                     <div *ngIf="exp.isShow" class="p-2">
-                        {{ exp.type }} <br>
-                        {{ exp.dateDebut | date: 'dd/MM/yyyy' }} - {{ exp.dateFin | date: 'dd/MM/yyyy' }} <br>
-                        {{ exp.description }}
+                        <p class="font-extrabold underline">{{ exp.type }}</p>
+                        <p class="italic">{{ exp.dateDebut | date: 'dd/MM/yyyy' }} - {{ exp.dateFin | date: 'dd/MM/yyyy' }}</p>
+                        <p class="text-base font-semibold">{{ exp.description }}</p>
                     </div>
                 </div>
             </div>
@@ -79,19 +79,15 @@
             <hr class="w-1/2 border-black border-2">
         </div>
         <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-2">
-            <div class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-2">
+            <div class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
                 <!-- card -->
-                <div *ngFor="let proj of projet" class="max-w-sm rounded-lg overflow-hidden border-[2px] border-sky-300 shadow-xl">
-                    <img class="w-10 h-10" src="../../assets/images/folder.png" alt="Folder">
-                    <div class="px-6 py-4">
-                      <div class="font-bold text-lg mb-2">{{ proj.nom }}</div>
-                      <!-- <p class="text-gray-700 text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                      </p> -->
+                <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl">
+                    <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
+                    <div class="px-2">
+                      <p class="font-bold text-lg mb-2">{{ proj.nom }}</p>
                     </div>
-                    <div class="px-6 pb-2">
-                      <!-- <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span> -->
-                      <button class="rounded-md font-bold bg-sky-300 p-1 hover:bg-sky-400">Démonstration</button>
+                    <div class="px-2 pb-2">
+                      <button class="rounded-md font-bold bg-sky-300 p-1 hover:bg-sky-400" (click)="openDemonstration(proj)">Démonstration</button>
                     </div>
                 </div>
             </div>
@@ -99,7 +95,7 @@
     </div>
 
     <!-- contacts -->
-    <div *ngIf="contacts" [@fadeInAnimation]="contacts ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+    <div *ngIf="contacts" [@fadeInAnimation]="contacts ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
         <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8">
             <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. CONTACTS</h1>
             <hr class="w-1/2 border-black border-2">

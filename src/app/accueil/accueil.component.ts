@@ -98,6 +98,10 @@ export class AccueilComponent implements OnInit {
     }
   }
 
+  openDemonstration(projet: any[]){
+    console.log(projet);
+  }
+
   openCV(){
     console.log("open CV");
   }

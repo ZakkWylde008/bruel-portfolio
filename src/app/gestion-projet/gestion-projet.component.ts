@@ -32,11 +32,12 @@ export class GestionProjetComponent implements OnInit {
   removeVideo(video: any){
     const projRef = ref(this.storage, video.nom);
     deleteObject(projRef).then(() => {
-      alert("Projet supprimer avec succès!");
-      this.router.navigate(['backend008/projet']);
+      console.log("Projet supprimer avec succès!");
+      setTimeout(() => {
+        this.router.navigate(['backend008/projet']);
+      }, 1000);
     }).catch((error) => {
-      alert("Une erreur est survenue!");
-      console.log(error);
+      console.log("Erreur: " +error);
     });
   }
 
