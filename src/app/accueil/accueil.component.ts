@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
-import { fadeInAnimation } from '../animations';
+import { fadeInAnimation, slideTopFadeInAnimation, slideBottomFadeInAnimation, slideLeftFadeInAnimation, slideRightFadeInAnimation } from '../animations';
 import { Experiences } from './experiences.model';
 import { ProjetService } from '../gestion-projet/projet.service';
 
@@ -8,7 +8,7 @@ import { ProjetService } from '../gestion-projet/projet.service';
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'],
-  animations: [fadeInAnimation]
+  animations: [fadeInAnimation, slideTopFadeInAnimation, slideBottomFadeInAnimation, slideLeftFadeInAnimation, slideRightFadeInAnimation]
 })
 export class AccueilComponent implements OnInit {
 

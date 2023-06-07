@@ -1,4 +1,4 @@
-<div *ngIf="isLoad" class="grid h-screen place-items-center">
+<div *ngIf="isLoad" class="grid h-screen bg-gradient-to-r from-white to-sky-200 place-items-center">
     <div
         class="h-14 w-14 border-sky-600 animate-spin rounded-full border-8 border-solid border-r-transparent"
         role="status">
@@ -12,9 +12,13 @@
     <!-- Accueil -->
     <div class="absolute z-0 w-full h-full mt-9 sm:mt-10 md:mt-20 lg:mt-20 xl:mt-20 2xl:mt-20 bg-gradient-to-r from-white to-sky-200">
         <div *ngIf="accueil" [@fadeInAnimation]="accueil ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}">
+            <div class="flex items-center justify-center">
+                <div class="absolute top-20 left-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
+                <div class="absolute top-20 right-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
+            </div>
             <div class="item-center pt-14 ml-8 mr-8 sm:pt-16 sm:ml-28 sm:mr-28 md:pt-16 md:ml-24 md:mr-24 lg:pt-20 lg:ml-52 lg:mr-52 xl:pt-20 xl:ml-64 xl:mr-64 2xl:pt-20 2xl:ml-64 2xl:mr-64">
-                <h3 class="text-sm sm:text-sm md:text-sm lg:text-xl xl:text-xl 2xl:text-xl font-sans">Bonjour, je m'appelle</h3>
-                <h1 class=" mt-4 text-sm sm:mt-4 sm:text-sm md:mt-4 md:text-2xl lg:mt-4 lg:text-3xl xl:mt-4 xl:text-5xl 2xl:mt-4 2xl:text-5xl font-sans font-extrabold">Bruel Razafimbelo RATOMPOARISOA.</h1>
+                <h3 class="text-sm sm:text-sm md:text-sm lg:text-xl xl:text-xl 2xl:text-xl font-sans drop-shadow">Bonjour, je m'appelle</h3>
+                <h1 class=" mt-4 text-sm sm:mt-4 sm:text-sm md:mt-4 md:text-2xl lg:mt-4 lg:text-3xl xl:mt-4 xl:text-5xl 2xl:mt-4 2xl:text-5xl font-sans font-extrabold drop-shadow">Bruel Razafimbelo RATOMPOARISOA.</h1>
                 <p class="text-sm sm:text-sm md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-5xl text-slate-400 font-sans font-bold drop-shadow">Je suis un développeur web et mobile junior.</p>
             </div>
             
@@ -31,8 +35,12 @@
     </div>
 
     <!-- A propos -->
-    <div *ngIf="apropos" [@fadeInAnimation]="apropos ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
-        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8">
+    <div *ngIf="apropos" [@slideTopFadeInAnimation]="apropos ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+        <div class="flex items-center justify-center">
+            <div class="absolute top-20 left-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
+            <div class="absolute top-20 right-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
+        </div>
+        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8 drop-shadow">
             <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">1. À PROPOS DE MOI</h1>
             <hr class="w-1/2 border-black border-2">
         </div>
@@ -46,21 +54,25 @@
                 J'ai commencé par les bases du développement web avec HTML, CSS et Javascript puis s'en est suivi les langages comme PHP, JAVA ou encore Python.
                 Je suis maintenant un développeur fullstack junior et après avoir presque touché à tout, j'ai un faible pour les technologies <b class="hover:underline">Symfony</b>, <b class="hover:underline">Angular</b> et récemment <b class="hover:underline">Flutter</b> que j'ai envie d'approfondir.
             </p>
-            <img src="../../assets/images/pdp.jpg" class="2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-72 lg:h-80 md:w-auto md:h-80 sm:w-auto sm:h-72 m-6 w-auto h-64 rounded" alt="Photo">
+            <img src="../../assets/images/pdp.jpg" class="2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-72 lg:h-80 md:w-auto md:h-80 sm:w-auto sm:h-72 w-full h-64 rounded drop-shadow" alt="Photo">
         </div>
     </div>
 
     <!-- Expériences -->
-    <div *ngIf="experiences" [@fadeInAnimation]="experiences ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
-        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8">
-            <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">2. EXPÉRIENCES</h1>
+    <div *ngIf="experiences" [@slideBottomFadeInAnimation]="experiences ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+        <div class="flex items-center justify-center">
+            <div class="absolute top-20 left-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
+            <div class="absolute top-20 right-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
+        </div>
+        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8 drop-shadow">
+            <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">2. MES EXPÉRIENCES</h1>
             <hr class="w-1/2 border-black border-2">
         </div>
-        <div class="flex flex-row 2xl:space-x-14 2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:space-x-12 xl:ml-64 xl:mr-64 xl:mt-6 lg:space-x-10 lg:ml-52 lg:mr-52 lg:mt-6 md:space-x-8 md:ml-40 md:mr-40 md:mt-4 sm:space-x-4 sm:ml-20 sm:mr-20 sm:mt-4 space-x-4 ml-8 mr-8 mt-2">
+        <div class="flex flex-row 2xl:space-x-14 2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:space-x-12 xl:ml-64 xl:mr-64 xl:mt-6 lg:space-x-10 lg:ml-52 lg:mr-52 lg:mt-6 md:space-x-8 md:ml-40 md:mr-40 md:mt-4 sm:space-x-4 sm:ml-20 sm:mr-20 sm:mt-4 space-x-4 ml-8 mr-8 mt-2 drop-shadow">
             <div class="flex flex-col space-y-0">
                 <button *ngFor="let exp of experience" [ngClass]="{'border-sky-400': exp.isShow}" class="bg-sky-200 font-sans font-bold p-1 border-l-[4px] hover:bg-sky-300" (click)="changeDescription(exp)">{{ exp.nom }}</button>
             </div>
-            <div class="border-l-[3px] border-r-[3px] border-sky-400 rounded w-3/5">
+            <div class="border-l-[3px] border-r-[3px] border-sky-400 rounded w-3/4">
                 <div *ngFor="let exp of experience">
                     <div *ngIf="exp.isShow" class="p-2">
                         <p class="font-extrabold underline">{{ exp.type }}</p>
@@ -73,13 +85,17 @@
     </div>
 
     <!-- Projets -->
-    <div *ngIf="projets" [@fadeInAnimation]="projets ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
-        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8">
-            <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">3. PROJETS</h1>
+    <div *ngIf="projets" [@slideLeftFadeInAnimation]="projets ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+        <div class="flex items-center justify-center">
+            <div class="absolute top-20 left-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
+            <div class="absolute top-20 right-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
+        </div>
+        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8 drop-shadow">
+            <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">3. MES PROJETS</h1>
             <hr class="w-1/2 border-black border-2">
         </div>
         <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-2">
-            <div class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
+            <div class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 drop-shadow">
                 <!-- card -->
                 <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl">
                     <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
@@ -95,9 +111,13 @@
     </div>
 
     <!-- contacts -->
-    <div *ngIf="contacts" [@fadeInAnimation]="contacts ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
-        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8">
-            <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. CONTACTS</h1>
+    <div *ngIf="contacts" [@slideRightFadeInAnimation]="contacts ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+        <div class="flex items-center justify-center">
+            <div class="absolute top-20 left-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
+            <div class="absolute top-20 right-1/3 2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
+        </div>
+        <div class="flex items-center space-x-2 pt-20 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:pt-10 md:ml-40 md:mr-40 sm:pt-8 sm:ml-20 sm:mr-20 pt-8 ml-8 mr-8 drop-shadow">
+            <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. ME CONTACTER?</h1>
             <hr class="w-1/2 border-black border-2">
         </div>
     </div>
