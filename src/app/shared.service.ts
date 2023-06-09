@@ -35,10 +35,4 @@ export class SharedService {
   setIsProjets(value: boolean) {
     this.isProjets.next(value);
   }
-
-  private isContacts = new BehaviorSubject<boolean>(false);
-  isContacts$ = this.isContacts.asObservable();
-  setIsContacts(value: boolean) {
-    this.isContacts.next(value);
-  }
 }

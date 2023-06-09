@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { fadeInAnimation, slideTopFadeInAnimation, slideBottomFadeInAnimation, slideLeftFadeInAnimation, slideRightFadeInAnimation } from '../animations';
-import { Experiences } from './experiences.model';
+import { Experiences } from '../gestion-experience/experiences.model';
+import { ExperienceService } from '../gestion-experience/experience.service';
 import { ProjetService } from '../gestion-projet/projet.service';
 
 @Component({
@@ -18,7 +19,6 @@ export class AccueilComponent implements OnInit {
   apropos: boolean = false;
   experiences: boolean = false;
   projets: boolean = false;
-  contacts: boolean = false;
 
   isMenuOpen: boolean = false;
 
@@ -28,7 +28,8 @@ export class AccueilComponent implements OnInit {
 
   constructor(
     private sharedService: SharedService,
-    private projectservice: ProjetService
+    private projectservice: ProjetService,
+    private experienceService: ExperienceService
     ) {}
 
   ngOnInit(): void {
@@ -55,38 +56,18 @@ export class AccueilComponent implements OnInit {
     this.sharedService.isProjets$.subscribe(is => {
       this.projets = is;
     });
-    this.sharedService.isContacts$.subscribe(is => {
-      this.contacts = is;
+
+    this.experienceService.getExperienceList().subscribe(res => {
+      this.experience = res.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as {},
+        } as Experiences;
+      });
+      this.experience[0].isShow = true;
     });
 
-    this.experience.push(this.getExp(new Experiences));
-    this.experience.push(this.getExp2(new Experiences));
-
     this.projet = this.projectservice.getVideoList();
-  }
-
-  getExp(exp: Experiences){
-    exp.id = 1;
-    exp.nom = "CREA-TIC";
-    exp.type = "Stage";
-    exp.description = "Developpeur web";
-    exp.dateDebut = new Date("07/06/2012");
-    exp.dateFin = new Date("07/06/2015");
-    exp.isShow = true;
-
-    return exp;
-  }
-
-  getExp2(exp: Experiences){
-    exp.id = 2;
-    exp.nom = "INOVATIC";
-    exp.type = "CDI";
-    exp.description = "Developpeur mobile";
-    exp.dateDebut = new Date("07/10/2010");
-    exp.dateFin = new Date("07/06/2012");
-    exp.isShow = false;
-
-    return exp;
   }
 
   changeDescription(exp: Experiences){

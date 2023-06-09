@@ -72,6 +72,23 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  openAccueil(){
+    this.accueil = true;
+    this.apropos = false;
+    this.experiences = false;
+    this.projets = false;
+    this.contacts = false;
+    this.sharedService.setIsAccueil(this.accueil);
+    this.sharedService.setIsApropos(this.apropos);
+    this.sharedService.setIsExperiences(this.experiences);
+    this.sharedService.setIsProjets(this.projets);
+
+    this.menuButton = true;
+    this.menuVisibility = false;
+    this.isMenuOpenHeader = false;
+    this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
+  }
+
   openApropos(){
     this.accueil = false;
     this.apropos = true;
@@ -82,7 +99,6 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsApropos(this.apropos);
     this.sharedService.setIsExperiences(this.experiences);
     this.sharedService.setIsProjets(this.projets);
-    this.sharedService.setIsContacts(this.contacts);
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -100,7 +116,6 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsApropos(this.apropos);
     this.sharedService.setIsExperiences(this.experiences);
     this.sharedService.setIsProjets(this.projets);
-    this.sharedService.setIsContacts(this.contacts);
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -118,25 +133,6 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsApropos(this.apropos);
     this.sharedService.setIsExperiences(this.experiences);
     this.sharedService.setIsProjets(this.projets);
-    this.sharedService.setIsContacts(this.contacts);
-
-    this.menuButton = true;
-    this.menuVisibility = false;
-    this.isMenuOpenHeader = false;
-    this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
-  }
-
-  openContacts(){
-    this.accueil = false;
-    this.apropos = false;
-    this.experiences = false;
-    this.projets = false;
-    this.contacts = true;
-    this.sharedService.setIsAccueil(this.accueil);
-    this.sharedService.setIsApropos(this.apropos);
-    this.sharedService.setIsExperiences(this.experiences);
-    this.sharedService.setIsProjets(this.projets);
-    this.sharedService.setIsContacts(this.contacts);
 
     this.menuButton = true;
     this.menuVisibility = false;
