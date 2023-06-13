@@ -19,19 +19,16 @@ export class HeaderComponent implements OnInit {
 
   isMenuOpenHeader: boolean = false;
 
-  accueil: boolean = false;
-  apropos: boolean = false;
-  experiences: boolean = false;
-  projets: boolean = false;
-  contacts: boolean = false;
+  headerBorder: boolean = false;
 
   constructor(private sharedService: SharedService) {
 
   }
 
   ngOnInit(): void {
-    this.accueil = true;
-    this.sharedService.setIsAccueil(this.accueil);
+    this.sharedService.isHeaderBorder$.subscribe(isHeaderBorder => {
+      this.headerBorder = isHeaderBorder;
+    });
 
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
@@ -72,16 +69,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  openAccueil(){
-    this.accueil = true;
-    this.apropos = false;
-    this.experiences = false;
-    this.projets = false;
-    this.contacts = false;
-    this.sharedService.setIsAccueil(this.accueil);
-    this.sharedService.setIsApropos(this.apropos);
-    this.sharedService.setIsExperiences(this.experiences);
-    this.sharedService.setIsProjets(this.projets);
+  openAccueil(event: any){
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -89,16 +77,7 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
   }
 
-  openApropos(){
-    this.accueil = false;
-    this.apropos = true;
-    this.experiences = false;
-    this.projets = false;
-    this.contacts = false;
-    this.sharedService.setIsAccueil(this.accueil);
-    this.sharedService.setIsApropos(this.apropos);
-    this.sharedService.setIsExperiences(this.experiences);
-    this.sharedService.setIsProjets(this.projets);
+  openApropos(event: any){
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -106,16 +85,7 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
   }
 
-  openExperiences(){
-    this.accueil = false;
-    this.apropos = false;
-    this.experiences = true;
-    this.projets = false;
-    this.contacts = false;
-    this.sharedService.setIsAccueil(this.accueil);
-    this.sharedService.setIsApropos(this.apropos);
-    this.sharedService.setIsExperiences(this.experiences);
-    this.sharedService.setIsProjets(this.projets);
+  openExperiences(event: any){
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -123,16 +93,7 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
   }
 
-  openProjets(){
-    this.accueil = false;
-    this.apropos = false;
-    this.experiences = false;
-    this.projets = true;
-    this.contacts = false;
-    this.sharedService.setIsAccueil(this.accueil);
-    this.sharedService.setIsApropos(this.apropos);
-    this.sharedService.setIsExperiences(this.experiences);
-    this.sharedService.setIsProjets(this.projets);
+  openProjets(event: any){
 
     this.menuButton = true;
     this.menuVisibility = false;

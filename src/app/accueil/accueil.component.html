@@ -6,10 +6,103 @@
     </div>
 </div>
 
-<div *ngIf="!isLoad">
-    <app-header></app-header>
+<div *ngIf="!isLoad" [@fadeInAnimation]="!isLoad">
+    <div class="h-screen overflow-y-scroll">
+        <app-header *ngIf="header_variable" [@menuFadeInAnimation]="header_variable"></app-header>
+        <div [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full bg-gradient-to-r from-white to-sky-200">
+            <div class="flex items-center justify-center">
+                <div class="fixed top-36 left-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
+                <div class="fixed top-36 right-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
+            </div>
 
-    <!-- Accueil -->
+            <!-- Accueil -->
+            <section id="target1" class="w-auto h-auto mt-9 sm:mt-10 md:mt-20 lg:mt-20 xl:mt-20 2xl:mt-20">
+                <div class="item-center pt-14 ml-8 mr-8 sm:pt-16 sm:ml-20 sm:mr-20 md:pt-16 md:ml-40 md:mr-40 lg:pt-20 lg:ml-52 lg:mr-52 xl:pt-20 xl:ml-64 xl:mr-64 2xl:pt-20 2xl:ml-64 2xl:mr-64">
+                    <h3 class="text-sm sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-sans drop-shadow">Bonjour, je m'appelle</h3>
+                    <h1 class=" mt-4 text-sm sm:mt-4 sm:text-md md:mt-4 md:text-2xl lg:mt-4 lg:text-3xl xl:mt-4 xl:text-5xl 2xl:mt-4 2xl:text-5xl font-sans font-extrabold drop-shadow">RATOMPOARISOA Bruel Razafimbelo.</h1>
+                    <p class="text-sm sm:text-md md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-5xl text-slate-400 font-sans font-bold drop-shadow">Je suis un développeur web et mobile junior.</p>
+                </div>
+                
+                <div class="pr-8 ml-8 mr-8 mt-4 sm:w-80 sm:ml-20 sm:mr-20 sm:mt-4 md:w-96 md:ml-40 md:mr-40 md:mt-6 lg:w-1/3 lg:ml-52 lg:mr-52 lg:mt-6 xl:w-1/3 xl:ml-64 xl:mr-64 xl:mt-6 2xl:w-1/3 2xl:ml-64 2xl:mr-64 2xl:mt-6">
+                    <p class="text-sm sm:text-sm lg:text-lg xl:text-lg 2xl:text-lg font-sans drop-shadow">
+                        Je peut m'adapter à plusieurs types de technologies utilisant des langages de programmation comme <b>Javascript</b>, <b>Typescript</b> ou encore <b>PHP</b>.
+                    </p>
+                </div>
+    
+                <button class="w-36 h-10 ml-8 mr-8 mt-4 sm:w-36 sm:h-10 sm:ml-20 sm:mr-20 sm:mt-6 md:w-40 md:h-10 md:ml-40 md:mr-40 md:mt-10 lg:w-52 lg:h-16 lg:ml-52 lg:mr-52 lg:mt-8 xl:w-52 xl:h-16 xl:ml-64 xl:mr-64 xl:mt-8 2xl:w-52 2xl:h-16 2xl:ml-64 2xl:mr-64 2xl:mt-8 font-bold bg-sky-200 drop-shadow duration-150 border-sky-200 rounded-lg hover:bg-sky-300 hover:border-[4px]" (click)="openCV()">
+                    Curriculum vitae
+                </button>
+            </section>
+
+            <!-- A propos -->
+            <section id="target2" class="w-auto h-auto">
+                <div class="flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-64 xl:ml-64 xl:mr-64 xl:mt-64 lg:ml-52 lg:mr-52 lg:mt-64 md:ml-40 md:mr-40 md:mt-64 sm:ml-20 sm:mr-20 sm:mt-64 ml-8 mr-8 mt-64 drop-shadow">
+                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">2. À PROPOS DE MOI</h1>
+                    <hr class="w-1/2 border-black border-2">
+                </div>
+                <div class="flex flex-col space-y-2 pt-2 ml-8 mr-8 2xl:flex-row 2xl:space-x-6 2xl:ml-64 2xl:mr-64 xl:flex-row xl:space-x-6 xl:ml-64 xl:mr-64 lg:flex-row lg:pt-4 lg:space-x-2 lg:ml-52 lg:mr-52 md:flex-col md:pt-2 md:space-y-2 md:ml-40 md:mr-40 sm:flex-col sm:pt-2 sm:space-y-2 sm:ml-20 sm:mr-20">
+                    <p class="rounded 2xl:w-1/2 2xl:text-lg xl:text-lg lg:text-base md:w-full md:text-sm sm:w-full sm:text-sm text-sm font-sans drop-shadow">
+                        Bonjour! Je m'appele Bruel et je suis un ingénieur en Genie Logiciel et Base de Données fraichement diplômé de l'Ecole Nationale d'Informatique de Fianarantsoa.
+                        Depuis tout petit, je suis fasciné par les jeux vidéos. Ca m'a emmené dans le monde du digital quand je suis arrivé au lycée vers 2013.
+                        Choisir un parcours en Informatique est devenu une évidence pour moi et j'ai décidé d'intégrer l'ENI.
+                        <br>
+                        <br>
+                        J'ai commencé par les bases du développement web avec HTML, CSS et Javascript puis s'en est suivi les langages comme PHP, JAVA ou encore Python.
+                        Je suis maintenant un développeur fullstack junior et après avoir presque touché à tout, j'ai un faible pour les technologies <b class="hover:underline">Symfony</b>, <b class="hover:underline">Angular</b> et récemment <b class="hover:underline">Flutter;</b> que j'ai envie d'approfondir.
+                    </p>
+                    <img src="../../assets/images/pdp.jpg" class="2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-72 lg:h-80 md:w-auto md:h-80 sm:w-auto sm:h-72 w-full h-64 border-[6px] border-sky-200 duration-500 rounded drop-shadow hover:border-[0px]" alt="Photo">     
+                </div>
+            </section>
+
+            <!-- Expériences -->
+            <section id="target3" class="w-auto h-96">
+                <div class="flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-64 xl:ml-64 xl:mr-64 xl:mt-64 lg:ml-52 lg:mr-52 lg:mt-64 md:ml-40 md:mr-40 md:mt-64 sm:ml-20 sm:mr-20 sm:mt-64 ml-8 mr-8 mt-64 drop-shadow">
+                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">3. MES EXPÉRIENCES</h1>
+                    <hr class="w-1/2 border-black border-2">
+                </div>
+                <div class="flex flex-row 2xl:space-x-14 2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:space-x-12 xl:ml-64 xl:mr-64 xl:mt-6 lg:space-x-10 lg:ml-52 lg:mr-52 lg:mt-6 md:space-x-8 md:ml-40 md:mr-40 md:mt-4 sm:space-x-4 sm:ml-20 sm:mr-20 sm:mt-4 space-x-4 ml-8 mr-8 mt-2 drop-shadow">
+                    <div class="flex flex-col space-y-0">
+                        <button *ngFor="let exp of experience" [ngClass]="{'border-sky-400': exp.isShow}" class="bg-sky-200 font-sans font-bold p-1 border-l-[4px] duration-500 hover:bg-sky-300" (click)="changeDescription(exp)">{{ exp.nom }}</button>
+                    </div>
+                    <div class="border-l-[3px] border-r-[3px] border-sky-400 rounded w-3/4">
+                        <div *ngFor="let exp of experience">
+                            <div *ngIf="exp.isShow" class="p-2">
+                                <p class="font-extrabold underline">{{ exp.type }}</p>
+                                <p class="italic">{{ exp.dateDebut | date: 'dd/MM/yyyy' }} - {{ exp.dateFin | date: 'dd/MM/yyyy' }}</p>
+                                <p class="text-base font-semibold mt-6">{{ exp.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projets -->
+            <section id="target4" class="w-auto h-auto">
+                <div class="flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-64 xl:ml-64 xl:mr-64 xl:mt-64 lg:ml-52 lg:mr-52 lg:mt-64 md:ml-40 md:mr-40 md:mt-64 sm:ml-20 sm:mr-20 sm:mt-64 ml-8 mr-8 mt-64 drop-shadow">
+                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. MES PROJETS</h1>
+                    <hr class="w-1/2 border-black border-2">
+                </div>
+                <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-2">
+                    <div class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 drop-shadow">
+                        
+                        <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl duration-100 hover:border-[3px]">
+                            <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
+                            <div class="px-2">
+                              <p class="font-bold text-lg mb-2">{{ proj.nom }}</p>
+                            </div>
+                            <div class="px-2 pb-2">
+                              <button class="rounded-md font-bold bg-sky-300 p-2 duration-150 hover:border-[2px] hover:border-sky-300" (click)="openDemonstration(proj)">Démonstration</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<!-- Accueil
     <div class="absolute z-0 w-full h-full mt-9 sm:mt-10 md:mt-20 lg:mt-20 xl:mt-20 2xl:mt-20 bg-gradient-to-r from-white to-sky-200">
         <div *ngIf="accueil" [@slideBottomFadeInAnimation]="accueil ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}">
             <div class="flex items-center justify-center">
@@ -17,9 +110,9 @@
                 <div class="absolute top-20 right-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
             </div>
             <div class="item-center pt-14 ml-8 mr-8 sm:pt-16 sm:ml-28 sm:mr-28 md:pt-16 md:ml-24 md:mr-24 lg:pt-20 lg:ml-52 lg:mr-52 xl:pt-20 xl:ml-64 xl:mr-64 2xl:pt-20 2xl:ml-64 2xl:mr-64">
-                <h3 class="text-sm sm:text-sm md:text-sm lg:text-xl xl:text-xl 2xl:text-xl font-sans drop-shadow">Bonjour, je m'appelle</h3>
-                <h1 class=" mt-4 text-sm sm:mt-4 sm:text-sm md:mt-4 md:text-2xl lg:mt-4 lg:text-3xl xl:mt-4 xl:text-5xl 2xl:mt-4 2xl:text-5xl font-sans font-extrabold drop-shadow">RATOMPOARISOA Bruel Razafimbelo.</h1>
-                <p class="text-sm sm:text-sm md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-5xl text-slate-400 font-sans font-bold drop-shadow">Je suis un développeur web et mobile junior.</p>
+                <h3 class="text-sm sm:text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-sans drop-shadow">Bonjour, je m'appelle</h3>
+                <h1 class=" mt-4 text-sm sm:mt-4 sm:text-md md:mt-4 md:text-2xl lg:mt-4 lg:text-3xl xl:mt-4 xl:text-5xl 2xl:mt-4 2xl:text-5xl font-sans font-extrabold drop-shadow">RATOMPOARISOA Bruel Razafimbelo.</h1>
+                <p class="text-sm sm:text-md md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-5xl text-slate-400 font-sans font-bold drop-shadow">Je suis un développeur web et mobile junior.</p>
             </div>
             
             <div class="pr-8 ml-8 mr-8 mt-4 sm:w-80 sm:ml-28 sm:mr-28 sm:mt-4 md:w-96 md:ml-24 md:mr-24 md:mt-6 lg:w-1/3 lg:ml-52 lg:mr-52 lg:mt-6 xl:w-1/3 xl:ml-64 xl:mr-64 xl:mt-6 2xl:w-1/3 2xl:ml-64 2xl:mr-64 2xl:mt-6">
@@ -32,17 +125,17 @@
                 Curriculum vitae
             </button>
 
-            <!-- <footer class="justify-center">
+            <footer class="justify-center">
                 <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
                     <span class="text-sm text-black sm:text-center">© 2023 <a href="https://www.facebook.com/bruel.razafimbeloratompoarisoa/" class="hover:underline">Bruel Razafimbelo</a>. Tout droit réservé.
                     </span>
                 </div>
-            </footer> -->
+            </footer>
         </div>
-    </div>
+    </div> -->
 
     <!-- A propos -->
-    <div *ngIf="apropos" [@slideTopFadeInAnimation]="apropos ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+    <!-- <div *ngIf="apropos" [@slideTopFadeInAnimation]="apropos ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
         <div class="flex items-center justify-center">
             <div class="absolute top-20 left-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
             <div class="absolute top-20 right-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
@@ -55,7 +148,7 @@
             <p class="rounded 2xl:w-1/2 2xl:text-lg xl:text-lg lg:text-base md:w-full md:text-sm sm:w-full sm:text-sm text-sm font-sans drop-shadow">
                 Bonjour! Je m'appele Bruel et je suis un ingénieur en Genie Logiciel et Base de Données fraichement diplômé de l'Ecole Nationale d'Informatique de Fianarantsoa.
                 Depuis tout petit, je suis fasciné par les jeux vidéos. Ca m'a emmené dans le monde du digital quand je suis arrivé au lycée vers 2013.
-                Faire un parcour en Informatique est devenu une évidence pour moi et j'ai décidé d'intégrer l'ENI.
+                Choisir un parcours en Informatique est devenu une évidence pour moi et j'ai décidé d'intégrer l'ENI.
                 <br>
                 <br>
                 J'ai commencé par les bases du développement web avec HTML, CSS et Javascript puis s'en est suivi les langages comme PHP, JAVA ou encore Python.
@@ -63,10 +156,10 @@
             </p>
             <img src="../../assets/images/pdp.jpg" class="2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-72 lg:h-80 md:w-auto md:h-80 sm:w-auto sm:h-72 w-full h-64 border-[6px] border-sky-200 duration-500 rounded drop-shadow hover:border-[0px]" alt="Photo">     
         </div>
-    </div>
+    </div> -->
 
     <!-- Expériences -->
-    <div *ngIf="experiences" [@slideLeftFadeInAnimation]="experiences ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+    <!-- <div *ngIf="experiences" [@slideLeftFadeInAnimation]="experiences ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
         <div class="flex items-center justify-center">
             <div class="absolute top-20 left-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
             <div class="absolute top-20 right-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
@@ -89,10 +182,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Projets -->
-    <div *ngIf="projets" [@slideRightFadeInAnimation]="projets ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
+    <!-- <div *ngIf="projets" [@slideRightFadeInAnimation]="projets ? 'visible' : 'hidden'" [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full h-full 2xl:mt-20 xl:mt-20 lg:mt-20 md:mt-20 sm:mt-9 mt-9 bg-gradient-to-r from-white to-sky-200">
         <div class="flex items-center justify-center">
             <div class="absolute top-20 left-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-sky-200 rounded-full blur-md animate-blob1"></div>
             <div class="absolute top-20 right-1/3 2xl:w-96 2xl:h-96 xl:w-80 xl:h-80 lg:w-64 lg:h-64 md:w-60 md:h-60 sm:w-56 sm:h-56 w-48 h-48 bg-white rounded-full blur-md animate-blob2"></div>
@@ -103,7 +196,7 @@
         </div>
         <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-2">
             <div class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 drop-shadow">
-                <!-- card -->
+                
                 <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl duration-100 hover:border-[3px]">
                     <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
                     <div class="px-2">
@@ -115,5 +208,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div> -->
