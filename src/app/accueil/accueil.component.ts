@@ -50,7 +50,7 @@ export class AccueilComponent implements OnInit {
           ...e.payload.doc.data() as {},
           isShow: false
         } as Experiences;
-      });
+      }).reverse();
       this.experience[0].isShow = true;
     });
 
@@ -74,6 +74,10 @@ export class AccueilComponent implements OnInit {
     console.log("open CV");
   }
 
+  contactMe(){
+    console.log("contact moi!");
+  }
+
   @HostListener("document:scroll")
   scrollFunction(){
     if(document.body.scrollTop > this.bodyNow || document.documentElement.scrollTop > this.docbodyNow){
@@ -93,5 +97,22 @@ export class AccueilComponent implements OnInit {
       this.headerBorder = false;
       this.sharedService.setIsHeaderBorder(this.headerBorder);
     }
+  }
+
+  scrollToDiv1(){
+    const targetDiv = document.getElementById('target1')!;
+    targetDiv.scrollIntoView({ behavior: 'smooth' });
+  }
+  scrollToDiv2(){
+    const targetDiv = document.getElementById('target2')!;
+    targetDiv.scrollIntoView({ behavior: 'smooth' });
+  }
+  scrollToDiv3(){
+    const targetDiv = document.getElementById('target3')!;
+    targetDiv.scrollIntoView({ behavior: 'smooth' });
+  }
+  scrollToDiv4(){
+    const targetDiv = document.getElementById('target4')!;
+    targetDiv.scrollIntoView({ behavior: 'smooth' });
   }
 }

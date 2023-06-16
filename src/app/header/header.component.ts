@@ -1,14 +1,18 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, EventEmitter, Output } from '@angular/core';
 import { SharedService } from '../shared.service';
-import { fadeInAnimation } from '../animations';
+import { fadeInAnimation, menuFadeInAnimation } from '../animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  animations: [fadeInAnimation]
+  animations: [fadeInAnimation, menuFadeInAnimation]
 })
 export class HeaderComponent implements OnInit {
+  @Output() menuAccueilClick = new EventEmitter<void>();
+  @Output() menuAproposClick = new EventEmitter<void>();
+  @Output() menuExperienceClick = new EventEmitter<void>();
+  @Output() menuProjetClick = new EventEmitter<void>();
 
   public getScreenWidth: any;
   public getScreenHeight: any;
@@ -69,7 +73,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  openAccueil(event: any){
+  openAccueil(){
+    this.menuAccueilClick.emit();
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -77,7 +82,8 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
   }
 
-  openApropos(event: any){
+  openApropos(){
+    this.menuAproposClick.emit();
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -85,7 +91,8 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
   }
 
-  openExperiences(event: any){
+  openExperiences(){
+    this.menuExperienceClick.emit();
 
     this.menuButton = true;
     this.menuVisibility = false;
@@ -93,7 +100,8 @@ export class HeaderComponent implements OnInit {
     this.sharedService.setIsMenuOpenHeader(this.isMenuOpenHeader);
   }
 
-  openProjets(event: any){
+  openProjets(){
+    this.menuProjetClick.emit();
 
     this.menuButton = true;
     this.menuVisibility = false;
