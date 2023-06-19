@@ -29,8 +29,8 @@
                     </p>
                 </div>
     
-                <button class="w-36 h-10 ml-8 mr-8 mt-4 sm:w-36 sm:h-10 sm:ml-20 sm:mr-20 sm:mt-6 md:w-40 md:h-10 md:ml-40 md:mr-40 md:mt-10 lg:w-52 lg:h-16 lg:ml-52 lg:mr-52 lg:mt-8 xl:w-52 xl:h-16 xl:ml-64 xl:mr-64 xl:mt-8 2xl:w-52 2xl:h-16 2xl:ml-64 2xl:mr-64 2xl:mt-8 font-bold bg-sky-200 drop-shadow duration-150 border-sky-200 rounded-lg hover:bg-sky-300 hover:border-[4px]" (click)="openCV()">
-                    Curriculum vitae
+                <button class="w-36 h-10 ml-8 mr-8 mt-4 sm:w-36 sm:h-10 sm:ml-20 sm:mr-20 sm:mt-6 md:w-40 md:h-10 md:ml-40 md:mr-40 md:mt-10 lg:w-52 lg:h-16 lg:ml-52 lg:mr-52 lg:mt-8 xl:w-52 xl:h-16 xl:ml-64 xl:mr-64 xl:mt-8 2xl:w-52 2xl:h-16 2xl:ml-64 2xl:mr-64 2xl:mt-8 font-bold bg-sky-200 drop-shadow duration-500 border-sky-200 rounded-lg hover:bg-sky-300 hover:border-[2px]" (click)="openCV()">
+                    CURRICULUM VITAE
                 </button>
             </section>
 
@@ -77,43 +77,49 @@
             </section>
 
             <!-- Projets -->
-            <section id="target4" class="w-auto h-auto">
+            <section id="target4" class="w-auto h-96">
                 <div class="flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-64 xl:ml-64 xl:mr-64 xl:mt-64 lg:ml-52 lg:mr-52 lg:mt-64 md:ml-40 md:mr-40 md:mt-64 sm:ml-20 sm:mr-20 sm:mt-64 ml-8 mr-8 mt-64 drop-shadow">
                     <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. MES PROJETS</h1>
                     <hr class="w-1/2 border-black border-2">
                 </div>
                 <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-2">
-                    <div class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 drop-shadow">
-                        
+                    <div [@videoFadeInAnimation]="!isShowVideoModal" *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 drop-shadow">
                         <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl">
                             <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
                             <div class="px-2">
-                              <p class="font-bold text-lg mb-2">{{ proj.nom }}</p>
+                              <p class="font-bold text-md mb-2">{{ proj.nom }}</p>
                             </div>
                             <div class="px-2 pb-2">
-                              <button class="rounded-md font-bold bg-sky-300 p-2 duration-150 hover:border-[2px] hover:border-sky-300" (click)="openDemonstration(proj)">Démonstration</button>
+                              <button class="font-bold p-2 bg-sky-200 drop-shadow duration-500 border-[2px] border-sky-200 rounded-lg hover:bg-sky-300" (click)="openDemonstration(proj)">OUVRIR</button>
                             </div>
                         </div>
+                    </div>
+                    <div [@videoFadeInAnimation]="isShowVideoModal" *ngIf="isShowVideoModal" class="w-full h-full drop-shadow">
+                        <video [src]="videoUrl" class="w-full h-auto drop-shadow rounded" controls>
+                        </video>
+                        <button (click)="closeDemonstration()" class="absolute right-2 top-1 text-white font-extrabold" title="FERMER">
+                            X
+                        </button>
                     </div>
                 </div>
             </section>
 
             <!-- contacts -->
-            <section class="w-auto h-96 bg-image mt-96">
+            <div class="w-auto h-96 bg-image mt-96 drop-shadow">
                 <div class="flex justify-center text-2xl pt-10 ml-8 mr-8 text-slate-400 font-sans font-bold drop-shadow">
                     ME CONTACTER?
                 </div>
-                <div class="flex justify-center text-center mt-4 ml-8 mr-8 text-sm sm:text-sm lg:text-lg xl:text-lg 2xl:text-lg drop-shadow">
+                <div class="flex justify-center text-center font-bold mt-14 ml-8 mr-8 text-sm sm:text-sm lg:text-lg xl:text-lg 2xl:text-lg drop-shadow">
                     Si mon profil vous intéresse pour un poste, un projet ou une collaboration, n'hésiter pas à m'en faire part:
                 </div>
                 <div class="flex justify-center ml-8 mr-8 mt-10">
-                    <button (click)="contactMe()" class="w-36 h-10 font-bold bg-sky-200 drop-shadow duration-150 border-sky-200 rounded-lg hover:bg-sky-300 hover:border-[4px]">CLIQUER ICI!</button>
+                    <button (click)="contactMe()" class="w-36 h-10 font-bold bg-sky-200 drop-shadow duration-500 border-[2px] border-sky-200 rounded-lg hover:bg-sky-300">CLIQUER ICI!</button>
                 </div>
-                <div class="flex justify-center mt-36">
-                    <span class="text-sm text-black drop-shadow">© 2023. Conçu et réalisé par <a href="https://www.facebook.com/bruel.razafimbeloratompoarisoa/" target="_blank" class="font-bold hover:underline">BruelRazafimbelo</a>. Tout droits résérvés.
+                <div class="flex justify-center mt-40 pb-4">
+                    <span class="text-sm text-black drop-shadow">© 2023. Conçu et réalisé par <a href="https://www.facebook.com/bruel.razafimbeloratompoarisoa/" target="_blank" class="font-bold hover:underline">Bruel Razafimbelo</a>.
                     </span>
                 </div>
-            </section>
+            </div>
         </div>
     </div>
 </div>

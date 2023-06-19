@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { SharedService } from '../shared.service';
-import { fadeInAnimation, menuFadeInAnimation } from '../animations';
+import { fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation } from '../animations';
 import { Experiences } from '../gestion-experience/experiences.model';
 import { ExperienceService } from '../gestion-experience/experience.service';
 import { ProjetService } from '../gestion-projet/projet.service';
@@ -9,7 +9,7 @@ import { ProjetService } from '../gestion-projet/projet.service';
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'],
-  animations: [fadeInAnimation, menuFadeInAnimation]
+  animations: [fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation]
 })
 export class AccueilComponent implements OnInit {
 
@@ -26,10 +26,13 @@ export class AccueilComponent implements OnInit {
   docbodyNow:any = 0;
   headerBorder: boolean = false;
 
+  isShowVideoModal: boolean = false;
+  videoUrl: string = "";
+
   constructor(
     private sharedService: SharedService,
     private projectservice: ProjetService,
-    private experienceService: ExperienceService
+    private experienceService: ExperienceService,
     ) {}
 
   ngOnInit(): void {
@@ -66,8 +69,14 @@ export class AccueilComponent implements OnInit {
     }
   }
 
-  openDemonstration(projet: any[]){
-    console.log(projet);
+  openDemonstration(projet: any){
+    this.isShowVideoModal = true;
+    this.videoUrl = projet.lien;
+  }
+
+  closeDemonstration(){
+    this.isShowVideoModal = false;
+    this.videoUrl = "";
   }
 
   openCV(){

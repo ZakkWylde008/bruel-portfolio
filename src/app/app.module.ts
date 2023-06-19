@@ -45,7 +45,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     provideStorage(() => getStorage())
   ],
   providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig }],
-  // providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
