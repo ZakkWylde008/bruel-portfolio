@@ -80,11 +80,12 @@ export class AccueilComponent implements OnInit {
   }
 
   openCV(){
-    console.log("open CV");
+    const cvUrl = '../../assets/pdf/CV_Bruel.pdf';
+    window.open(cvUrl, '_blank');
   }
 
   contactMe(){
-    console.log("contact moi!");
+    window.open('mailto:razafimbelobruel@gmail.com', '_self');
   }
 
   @HostListener("document:scroll")
