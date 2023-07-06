@@ -8,10 +8,6 @@ import { GestionProjetComponent } from './gestion-projet/gestion-projet.componen
 import { CreateProjetComponent } from './gestion-projet/create/create.component';
 
 const routes: Routes = [
-    // {
-    //   path: '',
-    //   component: AccueilComponent,
-    // },
     {
       path: '',
       component: AccueilComponent,

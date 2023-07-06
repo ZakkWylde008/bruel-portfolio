@@ -29,6 +29,8 @@ export class AccueilComponent implements OnInit {
   isShowVideoModal: boolean = false;
   videoUrl: string = "";
 
+  menuVisibilityFooter: boolean = false;
+
   constructor(
     private sharedService: SharedService,
     private projectservice: ProjetService,
@@ -44,6 +46,10 @@ export class AccueilComponent implements OnInit {
 
     this.sharedService.isMenuOpenHeader$.subscribe(isOpen => {
       this.isMenuOpen = isOpen;
+    });
+
+    this.sharedService.isMenuOpenFooter$.subscribe(isOpen => {
+      this.menuVisibilityFooter = isOpen;
     });
 
     this.experienceService.getExperienceList().subscribe(res => {

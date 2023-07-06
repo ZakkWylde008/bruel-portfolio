@@ -20,6 +20,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     CreateComponent,
     UpdateComponent,
     GestionProjetComponent,
-    CreateProjetComponent
+    CreateProjetComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,12 @@ export class SharedService {
     this.isMenuOpenHeader.next(value);
   }
 
+  private isMenuOpenFooter = new BehaviorSubject<boolean>(false);
+  isMenuOpenFooter$ = this.isMenuOpenFooter.asObservable();
+  setIsMenuOpenFooter(value: boolean) {
+    this.isMenuOpenFooter.next(value);
+  }
+
   private isHeaderBorder = new BehaviorSubject<boolean>(false);
   isHeaderBorder$ = this.isHeaderBorder.asObservable();
   setIsHeaderBorder(value: boolean) {
