@@ -86,7 +86,7 @@ export class AccueilComponent implements OnInit {
   }
 
   openCV(){
-    const cvUrl = 'https://zakkwylde008.github.io/bruel-portfolio/assets/pdf/CV_Bruel.pdf';
+    const cvUrl = '../../bruel-portfolio/assets/pdf/CV_Bruel.pdf';
     window.open(cvUrl, '_blank');
   }
 
