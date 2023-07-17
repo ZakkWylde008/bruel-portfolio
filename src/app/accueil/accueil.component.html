@@ -37,7 +37,7 @@
             <!-- A propos -->
             <section id="target2" class="w-auto h-auto">
                 <div class="flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-96 xl:ml-64 xl:mr-64 xl:mt-96 lg:ml-52 lg:mr-52 lg:mt-96 md:ml-40 md:mr-40 md:mt-96 sm:ml-20 sm:mr-20 sm:mt-96 ml-8 mr-8 mt-96 drop-shadow">
-                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">2. À PROPOS DE MOI</h1>
+                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">2. À PROPOS</h1>
                     <hr class="w-1/2 border-black border-2">
                 </div>
                 <div class="flex flex-col space-y-2 pt-2 ml-8 mr-8 2xl:flex-row 2xl:space-x-6 2xl:ml-64 2xl:mr-64 xl:flex-row xl:space-x-6 xl:ml-64 xl:mr-64 lg:flex-row lg:pt-4 lg:space-x-2 lg:ml-52 lg:mr-52 md:flex-col md:pt-2 md:space-y-2 md:ml-40 md:mr-40 sm:flex-col sm:pt-2 sm:space-y-2 sm:ml-20 sm:mr-20">
@@ -55,14 +55,16 @@
             </section>
 
             <!-- Expériences -->
-            <section id="target3" class="w-auto h-96">
+            <section id="target3" class="w-auto h-auto">
                 <div class="flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-96 xl:ml-64 xl:mr-64 xl:mt-96 lg:ml-52 lg:mr-52 lg:mt-96 md:ml-40 md:mr-40 md:mt-96 sm:ml-20 sm:mr-20 sm:mt-96 ml-8 mr-8 mt-96 drop-shadow">
-                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">3. MES EXPÉRIENCES</h1>
+                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">3. EXPÉRIENCES</h1>
                     <hr class="w-1/2 border-black border-2">
                 </div>
-                <div class="flex flex-row 2xl:space-x-14 2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:space-x-12 xl:ml-64 xl:mr-64 xl:mt-6 lg:space-x-10 lg:ml-52 lg:mr-52 lg:mt-6 md:space-x-8 md:ml-40 md:mr-40 md:mt-4 sm:space-x-4 sm:ml-20 sm:mr-20 sm:mt-4 space-x-4 ml-8 mr-8 mt-2 drop-shadow">
+                <div class="flex flex-row 2xl:space-x-14 2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:space-x-12 xl:ml-64 xl:mr-64 xl:mt-6 lg:space-x-10 lg:ml-52 lg:mr-52 lg:mt-6 md:space-x-8 md:ml-40 md:mr-40 md:mt-4 sm:space-x-4 sm:ml-20 sm:mr-20 sm:mt-4 space-x-2 ml-8 mr-8 mt-2 drop-shadow">
                     <div class="flex flex-col space-y-0">
-                        <button *ngFor="let exp of experience" [ngClass]="{'border-sky-400': exp.isShow}" class="bg-sky-200 font-sans font-bold p-1 border-l-[4px] duration-500 hover:bg-sky-300 hover:text-slate-500" (click)="changeDescription(exp)">{{ exp.nom }}</button>
+                        <button *ngFor="let exp of experience" [ngClass]="{'border-sky-400': exp.isShow}" class="bg-sky-200 font-bold p-1 border-l-[4px] duration-500 hover:bg-sky-300 hover:text-slate-500" (click)="changeDescription(exp)">
+                            {{ exp.nom }}
+                        </button>
                     </div>
                     <div class="border-l-[3px] border-r-[3px] border-sky-400 rounded w-3/4">
                         <div *ngFor="let exp of experience">
@@ -79,11 +81,10 @@
             <!-- Projets -->
             <section id="target4" class="w-auto h-96">
                 <div class="flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-96 xl:ml-64 xl:mr-64 xl:mt-96 lg:ml-52 lg:mr-52 lg:mt-96 md:ml-40 md:mr-40 md:mt-96 sm:ml-20 sm:mr-20 sm:mt-96 ml-8 mr-8 mt-96 drop-shadow">
-                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. MES PROJETS</h1>
+                    <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. PROJETS</h1>
                     <hr class="w-1/2 border-black border-2">
                 </div>
                 <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-2">
-                    <!-- [@videoFadeInAnimation]="!isShowVideoModal" -->
                     <div *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2 drop-shadow">
                         <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl">
                             <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
@@ -96,7 +97,7 @@
                         </div>
                     </div>
                     <div *ngIf="isShowVideoModal" class="w-full h-full drop-shadow">
-                        <video [src]="videoUrl" class="w-full h-auto drop-shadow rounded" controls>
+                        <video [src]="videoUrl" class="w-full h-auto 2xl:h-96 drop-shadow rounded" controls>
                         </video>
                         <div (click)="closeDemonstration()" class="absolute right-2 top-2 bg-white rounded-full w-8 h-8 grid place-items-center">
                             <button class="text-sky-200 font-extrabold" title="FERMER">
@@ -112,7 +113,7 @@
                 <div class="flex justify-center text-2xl pt-10 ml-8 mr-8 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-64 lg:mr-64 text-slate-400 font-sans font-bold drop-shadow">
                     ME CONTACTER?
                 </div>
-                <div class="flex justify-center text-center font-bold mt-24 ml-8 mr-8 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:ml-40 md:mr-40 text-sm sm:text-sm lg:text-lg xl:text-lg 2xl:text-lg drop-shadow">
+                <div class="flex justify-center text-center font-bold mt-32 ml-8 mr-8 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:ml-40 md:mr-40 text-sm sm:text-sm lg:text-lg xl:text-lg 2xl:text-lg drop-shadow">
                     Je suis actuellement à la recherche d'un nouveau defi et si mon profil vous intéresse pour un poste, un projet ou une collaboration, n'hésiter pas à m'en faire part:
                 </div>
                 <div class="flex justify-center ml-8 mr-8 mt-10 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-64 lg:mr-64">
