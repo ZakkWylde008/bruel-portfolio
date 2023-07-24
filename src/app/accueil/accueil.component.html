@@ -16,7 +16,7 @@
             </div>
 
             <!-- Accueil -->
-            <section id="target1" class="w-auto h-auto mt-9 sm:mt-10 md:mt-20 lg:mt-20 xl:mt-20 2xl:mt-20">
+            <section id="target1" class="w-auto h-auto mt-20 sm:mt-20 md:mt-20 lg:mt-20 xl:mt-20 2xl:mt-20">
                 <div class="item-center pt-14 ml-8 mr-8 sm:pt-16 sm:ml-20 sm:mr-20 md:pt-16 md:ml-40 md:mr-40 lg:pt-20 lg:ml-52 lg:mr-52 xl:pt-20 xl:ml-64 xl:mr-64 2xl:pt-20 2xl:ml-64 2xl:mr-64">
                     <h3 class="text-base sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-sans drop-shadow">Bonjour, je m'appelle</h3>
                     <h1 class="mt-4 text-xl sm:mt-4 sm:text-2xl md:mt-4 md:text-2xl lg:mt-4 lg:text-3xl xl:mt-4 xl:text-5xl 2xl:mt-4 2xl:text-5xl font-sans font-extrabold drop-shadow">RATOMPOARISOA Bruel Razafimbelo.</h1>
@@ -43,12 +43,12 @@
                 <div class="flex flex-col space-y-2 pt-2 ml-8 mr-8 2xl:flex-row 2xl:space-x-6 2xl:ml-64 2xl:mr-64 xl:flex-row xl:space-x-6 xl:ml-64 xl:mr-64 lg:flex-row lg:pt-4 lg:space-x-2 lg:ml-52 lg:mr-52 md:flex-col md:pt-2 md:space-y-2 md:ml-40 md:mr-40 sm:flex-col sm:pt-2 sm:space-y-2 sm:ml-20 sm:mr-20">
                     <p class="rounded 2xl:w-1/2 md:w-full sm:w-full text-base font-semibold drop-shadow">
                         Bonjour! Je m'appele Bruel et je suis un ingénieur en Genie Logiciel et Base de Données fraichement diplômé de l'Ecole Nationale d'Informatique de Fianarantsoa.
-                        Depuis tout petit, je suis fasciné par les jeux vidéos. Ca m'a emmené dans le monde du digital quand je suis arrivé au lycée vers 2013.
+                        Depuis tout petit, je suis fasciné par les jeux vidéos. Cela m'a mené dans le monde du digital quand je suis arrivé au lycée vers 2013.
                         Choisir un parcours en Informatique est devenu une évidence pour moi et j'ai décidé d'intégrer l'ENI.
                         <br>
                         <br>
                         J'ai commencé par les bases du développement web avec HTML, CSS et Javascript puis s'en est suivi des langages comme PHP, JAVA ou encore Python.
-                        Je suis maintenant un développeur fullstack junior et après avoir presque touché à tout, j'ai un faible pour les technologies <b class="hover:underline">Symfony</b>, <b class="hover:underline">Angular</b> et récemment <b class="hover:underline">Flutter</b>; que j'ai envie d'approfondir.
+                        Je suis maintenant un développeur fullstack junior et après avoir presque touché à tout, je me suis attardé pour les technologies <b class="hover:underline">Symfony</b>, <b class="hover:underline">Angular</b> et récemment <b class="hover:underline">Flutter</b>, que j'ai envie d'approfondir.
                     </p>
                     <img src="assets/images/pdp.jpg" class="2xl:w-80 2xl:h-80 xl:w-80 xl:h-80 lg:w-72 lg:h-80 md:w-auto md:h-80 sm:w-auto sm:h-72 w-full h-64 border-[6px] border-sky-200 duration-500 rounded drop-shadow hover:border-[0px]" title="Photo">     
                 </div>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="flex flex-row 2xl:space-x-14 2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:space-x-12 xl:ml-64 xl:mr-64 xl:mt-6 lg:space-x-10 lg:ml-52 lg:mr-52 lg:mt-6 md:space-x-8 md:ml-40 md:mr-40 md:mt-4 sm:space-x-4 sm:ml-20 sm:mr-20 sm:mt-4 space-x-2 ml-8 mr-8 mt-2 drop-shadow">
                     <div class="flex flex-col space-y-0">
-                        <button *ngFor="let exp of experience" [ngClass]="{'border-sky-400': exp.isShow}" class="bg-sky-200 font-bold p-1 border-l-[4px] duration-500 hover:bg-sky-300 hover:text-slate-500" (click)="changeDescription(exp)">
+                        <button *ngFor="let exp of experience" [ngClass]="{'border-sky-400': exp.isShow, 'text-xs': isTextXS}" class="bg-sky-200 font-bold p-1 border-l-[4px] duration-500 hover:bg-sky-300 hover:text-slate-500" (click)="changeDescription(exp)">
                             {{ exp.nom }}
                         </button>
                     </div>
@@ -114,10 +114,10 @@
                     ME CONTACTER?
                 </div>
                 <div class="flex justify-center text-center font-bold mt-32 ml-8 mr-8 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-52 lg:mr-52 md:ml-40 md:mr-40 text-sm sm:text-sm lg:text-lg xl:text-lg 2xl:text-lg drop-shadow">
-                    Je suis actuellement à la recherche d'un nouveau defi et si mon profil vous intéresse pour un poste, un projet ou une collaboration, n'hésiter pas à m'en faire part:
+                    Je suis actuellement à la recherche d'un nouveau defi et si mon profil vous intéresse pour un poste, un projet ou une collaboration, n'hésitez pas à m'en faire part :
                 </div>
                 <div class="flex justify-center ml-8 mr-8 mt-10 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-64 lg:mr-64">
-                    <button (click)="contactMe()" class="w-36 h-10 font-bold bg-sky-200 drop-shadow duration-500 border-[2px] border-sky-200 rounded-lg hover:bg-sky-300 hover:text-slate-500">CLIQUER ICI!</button>
+                    <button (click)="contactMe()" class="w-36 h-10 font-bold bg-sky-200 drop-shadow duration-500 border-[2px] border-sky-200 rounded-lg hover:bg-sky-300 hover:text-slate-500">CLIQUEZ ICI</button>
                 </div>
                 <div *ngIf="!menuVisibilityFooter" class="mt-10 flex flex-row space-x-2 justify-center">
                     <a href="https://www.linkedin.com/in/bruel-razafimbelo-ratompoarisoa-48979026a/" target="_blank"><img src="assets/images/linkedin.png" class="w-6 h-6 duration-500 hover:scale-150" title="Linkedin"></a>

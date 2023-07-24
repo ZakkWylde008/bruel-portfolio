@@ -61,11 +61,13 @@ export class HeaderComponent implements OnInit {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
 
-    if(this.getScreenWidth < 769){
+    if(this.getScreenWidth <= 769){
       this.sm = true;
+      this.sharedService.setIsSM(this.sm);
       this.menuButton = true;
     }else{
       this.sm = false;
+      this.sharedService.setIsSM(this.sm);
       this.menuVisibility = false;
       this.menuButton = false;
       this.isMenuOpenHeader = false;
