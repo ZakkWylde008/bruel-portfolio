@@ -24,6 +24,11 @@ module.exports = {
             transform: "scale(1)"
           }
         }
+      },
+      fontFamily: {
+        sans: ['Helvetica', 'Arial', 'sans-serif'],
+        serif: ['Georgia', 'serif'],
+        custom: ['Montserrat']
       }
     },
   },

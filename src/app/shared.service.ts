@@ -23,4 +23,10 @@ export class SharedService {
   setIsHeaderBorder(value: boolean) {
     this.isHeaderBorder.next(value);
   }
+
+  private isSM = new BehaviorSubject<boolean>(false);
+  isSM$ = this.isSM.asObservable();
+  setIsSM(value: boolean) {
+    this.isSM.next(value);
+  }
 }

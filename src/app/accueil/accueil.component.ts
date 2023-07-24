@@ -31,6 +31,8 @@ export class AccueilComponent implements OnInit {
 
   menuVisibilityFooter: boolean = false;
 
+  isTextXS: boolean = false;
+
   constructor(
     private sharedService: SharedService,
     private projectservice: ProjetService,
@@ -64,6 +66,10 @@ export class AccueilComponent implements OnInit {
     });
 
     this.projet = this.projectservice.getVideoList();
+
+    this.sharedService.isSM$.subscribe(isSM => {
+      this.isTextXS = isSM;
+    });
   }
 
   changeDescription(exp: Experiences){
