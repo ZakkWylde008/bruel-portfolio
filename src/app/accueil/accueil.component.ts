@@ -92,7 +92,7 @@ export class AccueilComponent implements OnInit {
   }
 
   openCV(){
-    const cvUrl = '../../assets/pdf/CV_Bruel.pdf';
+    const cvUrl = 'assets/pdf/CV_Bruel.pdf';
     window.open(cvUrl, '_blank');
   }
 
