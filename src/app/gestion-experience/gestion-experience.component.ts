@@ -28,6 +28,10 @@ export class GestionExperienceComponent implements OnInit {
     });
   }
 
+  redirectToEdit(experience: Experiences){
+    this.router.navigate(['backend008/experienceUpdate', experience.id]);
+  }
+
   removeExperience(experience: Experiences){
     if(confirm("Etes-vous sur de vouloir supprimer l'expérience n°" +experience.id +" ?"))
     this.experienceService.deleteExperience(experience);
