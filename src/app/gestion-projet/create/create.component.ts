@@ -6,6 +6,7 @@ import {
   uploadBytesResumable,
   getDownloadURL
 } from '@angular/fire/storage';
+// import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-create',
@@ -15,9 +16,11 @@ import {
 export class CreateProjetComponent implements OnInit {
 
   public video: any = {};
+  // public videoDescription: string;
 
   constructor(
     public storage: Storage,
+    // private db: AngularFireDatabase,
     public router: Router
   ) { }
 
@@ -44,6 +47,26 @@ export class CreateProjetComponent implements OnInit {
     //   });
     // }
     );
+
+
+    // const filename = `${new Date().getTime()}_${this.video.name}`;
+
+    // // Upload the video to Firebase Storage.
+    // const videoRef = this.storage.ref(filename);
+    // videoRef.put(this.video).then(() => {
+    //   // Once the upload is complete, you can store the video metadata (including description) in Firebase Realtime Database or Firestore.
+    //   const metadata = {
+    //     description: this.videoDescription,
+    //     downloadURL: videoRef.getDownloadURL(), // Get the download URL of the uploaded video.
+    //   };
+
+    //   // Save metadata to Firebase Realtime Database or Firestore.
+    //   this.db.object(`/videos/${filename}`).set(metadata);
+
+    //   // Clear the description and selected file after upload.
+    //   this.videoDescription = '';
+    //   this.video = null;
+    // });
   }
 
 }

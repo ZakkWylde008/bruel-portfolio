@@ -21,6 +21,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { FooterComponent } from './footer/footer.component';
+import { RemoveExtensionPipe } from './remove-extension.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
     UpdateComponent,
     GestionProjetComponent,
     CreateProjetComponent,
-    FooterComponent
+    FooterComponent,
+    RemoveExtensionPipe
   ],
   imports: [
     BrowserModule,

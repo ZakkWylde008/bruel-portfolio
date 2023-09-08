@@ -61,7 +61,10 @@ export class AccueilComponent implements OnInit {
           ...e.payload.doc.data() as {},
           isShow: false
         } as Experiences;
-      }).reverse();
+      }).sort(function(a, b){
+        return +new Date(b.dateDebut!) - +new Date(a.dateDebut!);
+      });
+      
       this.experience[0].isShow = true;
     });
 
