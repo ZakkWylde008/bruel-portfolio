@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div *ngIf="isShowVideoModal" class="w-full h-full drop-shadow">
-                        <video [src]="videoUrl" class="w-full h-auto 2xl:h-96 drop-shadow rounded" controls>
+                        <video [src]="videoUrl" class="w-full h-auto 2xl:h-96 drop-shadow rounded" controls playsinline autoplay loop>
                         </video>
                         <div (click)="closeDemonstration()" class="absolute right-2 top-2 bg-white rounded-full w-8 h-8 grid place-items-center">
                             <button class="text-sky-200 font-extrabold" title="FERMER">
