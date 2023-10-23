@@ -85,19 +85,19 @@
                     <hr class="w-1/2 border-black border-2">
                 </div>
                 <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-2">
-                    <div *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-2 drop-shadow">
-                        <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl">
+                    <div *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-4 drop-shadow">
+                        <div *ngFor="let proj of projet" class="rounded-lg border-[2px] border-sky-300 shadow-xl cursor-pointer duration-500 hover:scale-105" (click)="openDemonstration(proj)">
                             <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
                             <div class="px-2">
-                              <p class="font-bold text-md mb-2">{{ proj.nom | removeExtension }}</p>
+                              <p class="font-bold text-lg mb-2">{{ proj.nom | removeExtension }}</p>
                             </div>
-                            <div class="px-2 pb-2">
-                              <button class="font-bold p-1 bg-sky-200 drop-shadow duration-500 border-[2px] border-sky-200 rounded-lg hover:bg-sky-300 hover:text-slate-500" (click)="openDemonstration(proj)">OUVRIR</button>
+                            <div class="px-2 pb2">
+                                <p class="font-semibold font-sans text-slate-400 mb-2">{{ proj.outils }}</p>
                             </div>
                         </div>
                     </div>
                     <div *ngIf="isShowVideoModal" class="w-full h-full drop-shadow">
-                        <video [src]="videoUrl" class="w-full h-auto 2xl:h-96 drop-shadow rounded" controls playsinline autoplay loop>
+                        <video [src]="videoUrl" class="w-full h-auto 2xl:h-96 drop-shadow rounded" controls playsinline loop>
                         </video>
                         <div (click)="closeDemonstration()" class="absolute right-2 top-2 bg-white rounded-full w-8 h-8 grid place-items-center">
                             <button class="text-sky-200 font-extrabold" title="FERMER">

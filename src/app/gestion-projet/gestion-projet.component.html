@@ -12,12 +12,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let vid of videolist" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr *ngFor="let proj of projetlist" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ vid.nom }}
+                    {{ proj.nom }}
                 </th>
                 <td>
-                    <span (click)="removeVideo(vid)" class="bg-rose-400 hover:bg-rose-600 text-white font-bold rounded p-1 focus:outline-none focus:shadow-outline"><button>Supprimer</button></span>
+                    <span (click)="removeVideo(proj)" class="bg-rose-400 hover:bg-rose-600 text-white font-bold rounded p-1 focus:outline-none focus:shadow-outline"><button>Supprimer</button></span>
                 </td>
             </tr>
         </tbody>

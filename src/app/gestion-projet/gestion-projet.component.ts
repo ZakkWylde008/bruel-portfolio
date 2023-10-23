@@ -8,6 +8,7 @@ import {
   deleteObject
 } from '@angular/fire/storage';
 import { ProjetService } from './projet.service';
+import { Projet } from './projet.model';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { ProjetService } from './projet.service';
 export class GestionProjetComponent implements OnInit {
 
   videolist: any = [];
+  projetlist: Projet[] = [];
 
   constructor(
     private projetservice: ProjetService,
@@ -26,12 +28,21 @@ export class GestionProjetComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.videolist = this.projetservice.getVideoList();
+    // this.videolist = this.projetservice.getVideoList();
+    this.projetservice.getProjetList().subscribe(res => {
+      this.projetlist = res.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as Projet;
+      });
+    });
   }
 
-  removeVideo(video: any){
-    const projRef = ref(this.storage, video.nom);
+  removeVideo(projet: any){
+    const projRef = ref(this.storage, projet.nom);
     deleteObject(projRef).then(() => {
+      this.projetservice.deleteProjet(projet);
       console.log("Projet supprimer avec succès!");
       setTimeout(() => {
         this.router.navigate(['backend008/projet']);
