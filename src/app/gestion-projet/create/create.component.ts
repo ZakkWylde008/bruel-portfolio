@@ -7,6 +7,7 @@ import {
   getDownloadURL
 } from '@angular/fire/storage';
 // import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { ProjetService } from '../projet.service';
 
 @Component({
   selector: 'app-create',
@@ -16,12 +17,13 @@ import {
 export class CreateProjetComponent implements OnInit {
 
   public video: any = {};
-  // public videoDescription: string;
+  public outils: string;
 
   constructor(
     public storage: Storage,
     // private db: AngularFireDatabase,
-    public router: Router
+    public router: Router,
+    private projetService : ProjetService
   ) { }
 
   ngOnInit(): void {
@@ -41,32 +43,23 @@ export class CreateProjetComponent implements OnInit {
     (error) => {
       console.log(error.message);
     },
-    // () => {
-    //   getDownloadURL(uploadtask.snapshot.ref).then((downloadURL) => {
-    //     console.log("Video disponible sur le lien: " +downloadURL);
-    //   });
-    // }
+    () => {
+      getDownloadURL(uploadtask.snapshot.ref).then((downloadURL) => {
+        let dataToSend = {
+          nom: this.video.name,
+          url: downloadURL,
+          outils: this.outils,
+          date: new Date(),
+        }
+        this.projetService.createProjet(dataToSend);
+          alert("Ajout d'un projet efféctué avec succès!");
+          // setTimeout(() => {
+          //   this.router.navigate(['backend008/projet']);
+          // }, 1000);
+        
+      });
+    }
     );
-
-
-    // const filename = `${new Date().getTime()}_${this.video.name}`;
-
-    // // Upload the video to Firebase Storage.
-    // const videoRef = this.storage.ref(filename);
-    // videoRef.put(this.video).then(() => {
-    //   // Once the upload is complete, you can store the video metadata (including description) in Firebase Realtime Database or Firestore.
-    //   const metadata = {
-    //     description: this.videoDescription,
-    //     downloadURL: videoRef.getDownloadURL(), // Get the download URL of the uploaded video.
-    //   };
-
-    //   // Save metadata to Firebase Realtime Database or Firestore.
-    //   this.db.object(`/videos/${filename}`).set(metadata);
-
-    //   // Clear the description and selected file after upload.
-    //   this.videoDescription = '';
-    //   this.video = null;
-    // });
   }
 
 }

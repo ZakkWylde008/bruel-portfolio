@@ -3,6 +3,7 @@ import { SharedService } from '../shared.service';
 import { fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation } from '../animations';
 import { Experiences } from '../gestion-experience/experiences.model';
 import { ExperienceService } from '../gestion-experience/experience.service';
+import { Projet } from '../gestion-projet/projet.model';
 import { ProjetService } from '../gestion-projet/projet.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class AccueilComponent implements OnInit {
   header_variable: boolean = true;
 
   experience: Experiences[] = [];
-  projet:any = [];
+  projet:Projet[] = [];
 
   bodyNow: any = 0;
   docbodyNow:any = 0;
@@ -68,7 +69,16 @@ export class AccueilComponent implements OnInit {
       this.experience[0].isShow = true;
     });
 
-    this.projet = this.projectservice.getVideoList();
+    this.projectservice.getProjetList().subscribe(res => {
+      this.projet = res.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as Projet;
+      }).sort(function(a, b){
+        return +new Date(b.date!) - +new Date(a.date!);
+      });
+    });
 
     this.sharedService.isSM$.subscribe(isSM => {
       this.isTextXS = isSM;
@@ -86,7 +96,7 @@ export class AccueilComponent implements OnInit {
 
   openDemonstration(projet: any){
     this.isShowVideoModal = true;
-    this.videoUrl = projet.lien;
+    this.videoUrl = projet.url;
   }
 
   closeDemonstration(){
