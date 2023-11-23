@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div *ngIf="!isLoad" [@fadeInAnimation]="!isLoad">
+<div [@fadeInAnimation]="!isLoad" [ngClass]="{'hidden' : isLoad}">
     <div class="h-screen overflow-y-scroll">
         <app-header *ngIf="header_variable" (menuAccueilClick)="scrollToDiv1()" (menuAproposClick)="scrollToDiv2()" (menuExperienceClick)="scrollToDiv3()" (menuProjetClick)="scrollToDiv4()"></app-header>
         <div [ngClass]="{'blur-background' : isMenuOpen}" class="absolute z-0 w-full bg-gradient-to-r from-white to-sky-200">
@@ -77,6 +77,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- ChartJS -->
+                <canvas #expChart class="scale-100 text-center 2xl:ml-64 2xl:mr-64 2xl:mt-20 xl:ml-64 xl:mr-64 xl:mt-16 lg:ml-52 lg:mr-52 lg:mt-14 md:ml-40 md:mr-40 md:mt-10 sm:ml-20 sm:mr-20 sm:mt-10 ml-8 mr-8 mt-8 drop-shadow"></canvas>
             </section>
 
             <!-- Projets -->
