@@ -1,10 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation } from '../animations';
 import { Experiences } from '../gestion-experience/experiences.model';
 import { ExperienceService } from '../gestion-experience/experience.service';
 import { Projet } from '../gestion-projet/projet.model';
 import { ProjetService } from '../gestion-projet/projet.service';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-accueil',
@@ -12,7 +14,8 @@ import { ProjetService } from '../gestion-projet/projet.service';
   styleUrls: ['./accueil.component.css'],
   animations: [fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation]
 })
-export class AccueilComponent implements OnInit {
+export class AccueilComponent implements OnInit, AfterViewInit {
+  @ViewChild('expChart', { static: false }) expChart: ElementRef;
 
   isLoad: boolean = false;
 
@@ -82,6 +85,43 @@ export class AccueilComponent implements OnInit {
 
     this.sharedService.isSM$.subscribe(isSM => {
       this.isTextXS = isSM;
+    });
+  }
+
+  ngAfterViewInit() {
+    const ctx = this.expChart.nativeElement;
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['ANGULAR', 'BOOTSTRAP', 'GIT', 'MYSQL', 'POSTGRES', 'SYMFONY', 'TAILWIND'],
+        datasets: [{
+          label: 'MES CONNAISSANCES (%)',
+          data: [60, 50, 75, 80, 60, 50, 55]
+        }]
+      },
+      options: {
+        responsive: true,
+        indexAxis: 'y',
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              font:{
+                size: 18
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            max: 100
+          }
+        }
+      }
     });
   }
 
