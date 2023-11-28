@@ -48,7 +48,7 @@ export class AccueilComponent implements OnInit, AfterViewInit {
 
     setTimeout(() => {
       this.isLoad = false;
-    }, 2500);
+    }, 3500);
 
     this.sharedService.isMenuOpenHeader$.subscribe(isOpen => {
       this.isMenuOpen = isOpen;
@@ -93,11 +93,33 @@ export class AccueilComponent implements OnInit, AfterViewInit {
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['ANGULAR', 'BOOTSTRAP', 'GIT', 'MYSQL', 'POSTGRES', 'SYMFONY', 'TAILWIND'],
+        labels: ['Angular', 'Bootstrap', 'Git', 'MySQL', 'Postgres', 'Symfony', 'Tailwind'],
         datasets: [{
-          label: 'MES CONNAISSANCES (%)',
-          data: [60, 50, 75, 80, 60, 50, 55]
-        }]
+          label: 'Mes connaissances (%)',
+          data: [60, 50, 75, 80, 60, 50, 55],
+          backgroundColor: [
+            'rgb(101, 178, 255)',
+            'rgb(101, 178, 255)',
+            'rgb(101, 178, 255)',
+            'rgb(101, 178, 255)',
+            'rgb(101, 178, 255)',
+            'rgb(101, 178, 255)',
+            'rgb(101, 178, 255)'
+          ],
+          borderColor: [
+            'rgb(0, 127, 255)',
+            'rgb(0, 127, 255)',
+            'rgb(0, 127, 255)',
+            'rgb(0, 127, 255)',
+            'rgb(0, 127, 255)',
+            'rgb(0, 127, 255)',
+            'rgb(0, 127, 255)'
+          ],
+          borderWidth: 2,
+          barPercentage: 0.2,
+          categoryPercentage: 1,
+          borderRadius: 10
+        }],
       },
       options: {
         responsive: true,
@@ -113,7 +135,8 @@ export class AccueilComponent implements OnInit, AfterViewInit {
               font:{
                 size: 18
               }
-            }
+            },
+            display: true
           }
         },
         scales: {
