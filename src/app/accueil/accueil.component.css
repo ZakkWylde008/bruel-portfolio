@@ -64,3 +64,22 @@
         --delay: 0.2s;
     }
 }
+
+.invis {
+    opacity: 0;
+}
+
+.fade-in-text {
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
