@@ -104,7 +104,7 @@
                 <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-4">
                     <div *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-4 drop-shadow">
                         <div appFadeIn *ngFor="let proj of projet" class="invis rounded-lg border-[2px] border-sky-300 shadow-xl cursor-pointer duration-500 hover:scale-105" (click)="openDemonstration(proj)">
-                            <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
+                            <img class="px-2 w-12 h-10" src="assets/images/folder.png" alt="Folder">
                             <div class="px-2">
                               <p class="font-bold text-lg mb-2">{{ proj.nom | removeExtension }}</p>
                             </div>
