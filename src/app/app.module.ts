@@ -22,6 +22,7 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { FooterComponent } from './footer/footer.component';
 import { RemoveExtensionPipe } from './remove-extension.pipe';
+import { FadeInDirective } from './fade-in.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RemoveExtensionPipe } from './remove-extension.pipe';
     GestionProjetComponent,
     CreateProjetComponent,
     FooterComponent,
-    RemoveExtensionPipe
+    RemoveExtensionPipe,
+    FadeInDirective
   ],
   imports: [
     BrowserModule,
