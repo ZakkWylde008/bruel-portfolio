@@ -70,7 +70,7 @@
 }
 
 .fade-in-text {
-    animation: fadeIn 1s;
+    animation: fadeIn 1.5s;
 }
 
 @keyframes fadeIn {
