@@ -113,10 +113,10 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="isShowVideoModal" class="w-full h-full drop-shadow">
+                    <div *ngIf="isShowVideoModal" class="relative w-full h-full drop-shadow">
                         <video [src]="videoUrl" class="w-full h-auto 2xl:h-96 drop-shadow rounded" controls playsinline loop>
                         </video>
-                        <div (click)="closeDemonstration()" class="button-closevideo cursor-pointer bg-white rounded-full w-8 h-8 grid place-items-center hover:scale-105">
+                        <div (click)="closeDemonstration()" class="absolute right-2 top-2 cursor-pointer bg-white rounded-full w-8 h-8 grid place-items-center hover:scale-110">
                             <button class="text-sky-200 font-extrabold" title="FERMER">
                                 X
                             </button>
