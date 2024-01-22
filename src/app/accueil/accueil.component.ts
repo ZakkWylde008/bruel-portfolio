@@ -159,7 +159,7 @@ export class AccueilComponent implements OnInit, AfterViewInit {
 
   openDemonstration(projet: any){
     this.isShowVideoModal = true;
-    this.videoUrl = projet.url;
+    this.videoUrl = projet.urlVideo;
   }
 
   closeDemonstration(){

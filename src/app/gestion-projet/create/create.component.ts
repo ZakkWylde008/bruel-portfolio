@@ -6,7 +6,6 @@ import {
   uploadBytesResumable,
   getDownloadURL
 } from '@angular/fire/storage';
-// import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ProjetService } from '../projet.service';
 
 @Component({
@@ -17,11 +16,11 @@ import { ProjetService } from '../projet.service';
 export class CreateProjetComponent implements OnInit {
 
   public video: any = {};
+  public image: any = {};
   public outils: string;
 
   constructor(
     public storage: Storage,
-    // private db: AngularFireDatabase,
     public router: Router,
     private projetService : ProjetService
   ) { }
@@ -33,29 +32,45 @@ export class CreateProjetComponent implements OnInit {
     this.video = event?.target.files[0];
   }
 
+  chooseImage(event: any){
+    this.image = event?.target.files[0];
+  }
+
   onSubmit(){
     const storageref = ref(this.storage, this.video.name);
     const uploadtask = uploadBytesResumable(storageref, this.video);
     uploadtask.on('state_changed', (snapshot) => {
       const progression = ((snapshot.bytesTransferred / snapshot.totalBytes)*100);
-      console.log("L'ajout est à " +progression +" %");
+      console.log("L'ajout de la video est à " +progression +" %");
     },
     (error) => {
       console.log(error.message);
     },
     () => {
       getDownloadURL(uploadtask.snapshot.ref).then((downloadURL) => {
-        let dataToSend = {
-          nom: this.video.name,
-          url: downloadURL,
-          outils: this.outils,
-          date: new Date(),
+        const storagerefImg = ref(this.storage, this.image.name);
+        const uploadtaskImg = uploadBytesResumable(storagerefImg, this.image);
+        uploadtaskImg.on('state_changed', (snapshot) => {
+          const progression = ((snapshot.bytesTransferred / snapshot.totalBytes)*100);
+          console.log("L'ajout de l'image est à " +progression +" %");
+        },
+        (error) => {
+          console.log(error.message);
+        },
+        () => {
+          getDownloadURL(uploadtaskImg.snapshot.ref).then((urlImg) => {
+            let dataToSend = {
+              nom: this.video.name,
+              urlVideo: downloadURL,
+              urlImage: urlImg,
+              outils: this.outils,
+              date: new Date(),
+            }
+            this.projetService.createProjet(dataToSend);
+              alert("Ajout d'un projet efféctué avec succès!");
+          });
         }
-        this.projetService.createProjet(dataToSend);
-          alert("Ajout d'un projet efféctué avec succès!");
-          // setTimeout(() => {
-          //   this.router.navigate(['backend008/projet']);
-          // }, 1000);
+        );
         
       });
     }
