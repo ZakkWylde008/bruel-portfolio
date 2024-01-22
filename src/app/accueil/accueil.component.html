@@ -106,7 +106,7 @@
                     <div *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-4 drop-shadow">
                         <div appFadeIn *ngFor="let proj of projet" class="invis bg-white rounded-lg border-[2px] border-sky-300 shadow-xl cursor-pointer duration-500 hover:scale-105" (click)="openDemonstration(proj)">
                             <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
-                            <img class="px-2 py-2" [src]="proj.urlImage" alt="Image">
+                            <img class="px-2 py-2 rounded-t-lg" [src]="proj.urlImage" alt="Image">
                             <div class="px-2">
                               <p class="font-bold text-lg mb-2">{{ proj.nom | removeExtension }}</p>
                             </div>
