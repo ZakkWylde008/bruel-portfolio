@@ -97,7 +97,7 @@
             </section>
 
             <!-- Projets -->
-            <section id="target4" class="w-auto h-96">
+            <section id="target4" class="w-auto h-auto">
                 <div appFadeIn class="invis flex items-center space-x-2 2xl:ml-64 2xl:mr-64 2xl:mt-96 xl:ml-64 xl:mr-64 xl:mt-96 lg:ml-52 lg:mr-52 lg:mt-96 md:ml-40 md:mr-40 md:mt-96 sm:ml-20 sm:mr-20 sm:mt-96 ml-8 mr-8 mt-96 drop-shadow">
                     <h1 class="2xl:text-3xl xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-sans font-extrabold">4. PROJETS</h1>
                     <hr class="w-1/2 border-black border-2">
@@ -106,7 +106,9 @@
                     <div *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-4 drop-shadow">
                         <div appFadeIn *ngFor="let proj of projet" class="invis bg-white rounded-lg border-[2px] border-sky-300 shadow-xl cursor-pointer duration-500 hover:scale-105" (click)="openDemonstration(proj)">
                             <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
-                            <img class="px-2 py-2 rounded-t-lg" [src]="proj.urlImage" alt="Image">
+                            <div class="px-2 py-2">
+                                <img class="rounded-t-lg w-full h-60" [src]="proj.urlImage" alt="Image">
+                            </div>
                             <div class="px-2">
                               <p class="font-bold text-lg mb-2">{{ proj.nom | removeExtension }}</p>
                             </div>
