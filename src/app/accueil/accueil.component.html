@@ -86,7 +86,11 @@
                         <div *ngFor="let exp of experience">
                             <div *ngIf="exp.isShow" class="p-2">
                                 <p class="font-extrabold underline">{{ exp.type }}</p>
-                                <p class="italic">{{ exp.dateDebut | date: 'dd/MM/yyyy' }} - {{ exp.dateFin | date: 'dd/MM/yyyy' }}</p>
+                                <div class="italic flex flex-wrap">
+                                    <p class="inline-block">{{ exp.dateDebut | date: 'dd/MM/yyyy' }} -</p>&nbsp;
+                                    <p *ngIf="exp.dateFin" class="inline-block">{{ exp.dateFin | date: 'dd/MM/yyyy' }}</p>
+                                    <p *ngIf="!exp.dateFin" class="inline-block">Présent</p>
+                                </div>
                                 <p class="text-base mt-6">{{ exp.description }}</p>
                             </div>
                         </div>
