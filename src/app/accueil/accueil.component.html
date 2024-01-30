@@ -43,7 +43,7 @@
                     </p>
                 </div>
     
-                <button appFadeIn class="invis flex flex-row justify-center items-center w-52 h-12 ml-8 mr-8 mt-4 sm:w-52 sm:h-12 sm:ml-20 sm:mr-20 sm:mt-6 md:w-52 md:h-12 md:ml-40 md:mr-40 md:mt-10 lg:w-60 lg:h-16 lg:ml-52 lg:mr-52 lg:mt-8 xl:w-60 xl:h-16 xl:ml-64 xl:mr-64 xl:mt-8 2xl:w-60 2xl:h-16 2xl:ml-64 2xl:mr-64 2xl:mt-8 font-bold bg-sky-200 drop-shadow duration-500 border-sky-200 rounded-lg hover:bg-sky-300 hover:border-[2px] hover:text-slate-500" (click)="openCV()">
+                <button appFadeIn class="invis flex flex-row justify-center items-center w-52 h-12 ml-8 mr-8 mt-4 sm:w-52 sm:h-12 sm:ml-20 sm:mr-20 sm:mt-6 md:w-52 md:h-12 md:ml-40 md:mr-40 md:mt-10 lg:w-60 lg:h-16 lg:ml-52 lg:mr-52 lg:mt-8 xl:w-60 xl:h-16 xl:ml-64 xl:mr-64 xl:mt-8 2xl:w-60 2xl:h-16 2xl:ml-64 2xl:mr-64 2xl:mt-8 font-bold bg-sky-200 drop-shadow duration-500 border-sky-200 rounded-lg hover:bg-sky-300 hover:border-[2px] hover:text-slate-500 hover:scale-105" (click)="openCV()">
                     Télécharger CV
                     &nbsp;<img src="../../assets/images/icon_telecharger.png" class="w-6 h-6">
                 </button>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="2xl:ml-64 2xl:mr-64 2xl:mt-6 xl:ml-64 xl:mr-64 xl:mt-6 lg:ml-52 lg:mr-52 lg:mt-6 md:ml-40 md:mr-40 md:mt-4 sm:ml-20 sm:mr-20 sm:mt-4 ml-8 mr-8 mt-4">
                     <div *ngIf="!isShowVideoModal" class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4 drop-shadow">
-                        <div appFadeIn *ngFor="let proj of projet" class="invis bg-white rounded-lg border-[2px] border-sky-300 shadow-xl cursor-pointer duration-500 hover:scale-105" (click)="openDemonstration(proj)">
+                        <div appFadeIn *ngFor="let proj of projet" class="invis bg-white rounded-lg border-[2px] border-sky-300 shadow-xl cursor-pointer duration-500 hover:scale-105 hover:bg-opacity-10" (click)="openDemonstration(proj)">
                             <img class="px-2 w-12 h-10" src="../../assets/images/folder.png" alt="Folder">
                             <div class="px-2 py-2">
                                 <img class="rounded-t-lg w-full h-60" [src]="proj.urlImage" alt="Image">
@@ -138,7 +138,7 @@
                     Je suis actuellement à la recherche d'un nouveau defi et si mon profil vous intéresse pour un poste, un projet ou une collaboration, n'hésitez pas à m'en faire part :
                 </div>
                 <div appFadeIn class="invis flex justify-center ml-8 mr-8 mt-10 2xl:ml-64 2xl:mr-64 xl:ml-64 xl:mr-64 lg:ml-64 lg:mr-64">
-                    <button (click)="contactMe()" class="w-36 h-10 font-bold bg-sky-200 drop-shadow duration-500 border-[2px] border-sky-200 rounded-lg hover:bg-sky-300 hover:text-slate-500">CLIQUEZ ICI</button>
+                    <button (click)="contactMe()" class="w-36 h-10 font-bold bg-sky-200 drop-shadow duration-500 border-[2px] border-sky-200 rounded-lg hover:bg-sky-300 hover:text-slate-500 hover:scale-105">CLIQUEZ ICI</button>
                 </div>
                 <div appFadeIn *ngIf="!menuVisibilityFooter" class="invis mt-10 flex flex-row space-x-2 justify-center">
                     <a href="https://www.linkedin.com/in/bruel-razafimbelo-ratompoarisoa-48979026a/" target="_blank"><img src="../../assets/images/linkedin.png" class="w-6 h-6 duration-500 hover:scale-150" title="Linkedin"></a>
