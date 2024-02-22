@@ -14,10 +14,16 @@ module.exports = {
           "0%": {
             transform: "scale(1)"
           },
-          "33%": {
-            transform: "scale(1.2)"
+          "20%": {
+            transform: "scale(1.1)"
           },
-          "66%": {
+          "40%": {
+            transform: "scale(1.3)"
+          },
+          "60%": {
+            transform: "scale(1.1)"
+          },
+          "80%": {
             transform: "scale(0.8)"
           },
           "100%": {

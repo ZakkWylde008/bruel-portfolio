@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SharedService } from '../shared.service';
-import { fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation } from '../animations';
+import { fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation, textFadeInOutAnimation } from '../animations';
 import { Experiences } from '../gestion-experience/experiences.model';
 import { ExperienceService } from '../gestion-experience/experience.service';
 import { Projet } from '../gestion-projet/projet.model';
@@ -12,7 +12,12 @@ Chart.register(...registerables);
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'],
-  animations: [fadeInAnimation, menuFadeInAnimation, videoFadeInAnimation]
+  animations: [
+    fadeInAnimation,
+    menuFadeInAnimation,
+    videoFadeInAnimation,
+    textFadeInOutAnimation
+  ]
 })
 export class AccueilComponent implements OnInit, AfterViewInit {
   @ViewChild('expChart', { static: false }) expChart: ElementRef;
@@ -37,6 +42,10 @@ export class AccueilComponent implements OnInit, AfterViewInit {
 
   isTextXS: boolean = false;
 
+  // Text animation variable
+  phrases: string[] = ["Développeur fullstack", "Frontend Vue et Angular", "Backend Symfony"];
+  currentPhraseIndex: number = 0;
+
   constructor(
     private sharedService: SharedService,
     private projectservice: ProjetService,
@@ -49,6 +58,10 @@ export class AccueilComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.isLoad = false;
     }, 3500);
+
+    setInterval(() => {
+      this.currentPhraseIndex = (this.currentPhraseIndex + 1) % this.phrases.length;
+    }, 2000);
 
     this.sharedService.isMenuOpenHeader$.subscribe(isOpen => {
       this.isMenuOpen = isOpen;
