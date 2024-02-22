@@ -1,4 +1,4 @@
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 
 export const fadeInAnimation = 
   trigger('fadeInAnimation', [
@@ -24,14 +24,22 @@ export const menuFadeInAnimation =
   ]);
 
   export const videoFadeInAnimation =
-  trigger('videoFadeInAnimation', [
-    transition(':enter', [
-      style({ opacity: 0 }),
-      animate('500ms', style({ opacity: 1 }))
-    ]),
-    transition(':leave', [
-      style({ opacity: 1 }),
-      animate('500ms', style({ opacity: 0}))
+    trigger('videoFadeInAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('500ms', style({ opacity: 0}))
+      ])
+    ]);
+
+  export const textFadeInOutAnimation = 
+    trigger('textFadeInOutAnimation', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
     ])
-  ]);
   

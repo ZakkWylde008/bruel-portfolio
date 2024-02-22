@@ -83,3 +83,28 @@
         transform: none;
     }
 }
+
+#typing-text {
+    overflow: hidden;
+    border-right: 1px solid black;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), deleting 3s 3s steps(40, end) infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+  
+@keyframes deleting {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
